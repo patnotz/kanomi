@@ -18,13 +18,11 @@ struct ScalarField {
       values[i] = zero;
   }
 
-  ScalarField(const ScalarT val) : name(FieldNameT::name()) {
-    for(int i=0; i < num_points; ++i)
-      values[i] = val;
-  }
-
   template <class M>
   void setup(M & m, Teuchos::RCP<Teuchos::ParameterList> plist) {
+    const ScalarT val = plist->sublist(name,true).get<ScalarT>("value");
+    for(int i=0; i < num_points; ++i)
+      values[i] = val;
     std::cout << "setup " << name << std::endl;
   }
 

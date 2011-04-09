@@ -10,11 +10,8 @@ using namespace Teuchos;
 namespace fusion = boost::fusion;
 
 struct Base {
-  Base(const int value_arg, const string name_arg) :
-    value(value_arg), name(name_arg) {
-  }
-  Base(const Base & rhs) : value(rhs.value), name(rhs.name) {
-    cout << "Base copy c-tor for " << name << endl;
+  Base(const string name_arg) :
+    value(0), name(name_arg) {
   }
   int value;
   string name;
@@ -24,40 +21,40 @@ struct Base {
 };
 
 struct A : public Base{
-  A() : Base(0, "A") {}
-  A(const int val) : Base(val, "A") {}
+  A() : Base("A") {}
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
+    value = plist->sublist(name,true).get<int>("value");
     cout << "setup " << name << endl;
   }
 };
 
 struct B : public Base {
-  B() : Base(0, "B"), b(0) {}
-  B(const int val) : Base(val, "B"), b(val) {}
+  B() : Base("B"), b(0) {}
   int b;
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
     int a = m.template get<A>().value;
+    b = plist->sublist(name,true).get<int>("value");
     value = a * b;
     cout << "setup B, a = " << a << endl;
   }
 };
 
 struct C : public Base {
-  C() : Base(0,"C") {}
-  C(const int val) : Base(val, "C") {}
+  C() : Base("C") {}
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
+    value = plist->sublist(name,true).get<int>("value");
     cout << "setup " << name << endl;
   }
 };
 
 struct D : public Base {
-  D() : Base(0,"D") {}
-  D(const int val) : Base(val, "D") {}
+  D() : Base("D") {}
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
+    value = plist->sublist(name,true).get<int>("value");
     cout << "setup " << name << endl;
   }
 };
@@ -82,12 +79,20 @@ struct enabled_pred { template <class X> struct apply : enabled<X> {}; };
 int main(int argc, char * argv[]) {
   RCP<ParameterList> plist = rcp(new ParameterList);
 
+  ParameterList & p_a = plist->sublist("A");
+  p_a.set<int>("value",9);
+  ParameterList & p_b = plist->sublist("B");
+  p_b.set<int>("value",2);
+  ParameterList & p_c = plist->sublist("C");
+  p_c.set<int>("value",7);
+  ParameterList & p_d = plist->sublist("D");
+  p_d.set<int>("value",1);
+  ParameterList & p_temperature = plist->sublist("TEMPERATURE");
+  p_temperature.set<ScalarT>("value",3.14159);
+
   typedef fusion::cons<A, fusion::cons<B, fusion::cons<C> > > Seq;
   Manager<Seq> m(plist);
-  m.set(A(9))
-      .set(B(2))
-      .set(C(7))
-      .run();
+  m.run();
 
   //typedef fusion::result_of::value_at_key<opt,Y>::type ys;
   //typedef fusion::result_of::begin<ys>::type yi;
@@ -96,11 +101,7 @@ int main(int argc, char * argv[]) {
   typedef fusion::result_of::value_of<KI_type>::type K_type;
   typedef fusion::cons<K_type, Seq> Seq2;
   Manager<Seq2> m2(plist);
-  m2.set( m.get<A>() )
-      .set( m.get<B>() )
-      .set( m.get<C>() )
-      .set( K_type(1) )
-      .run();
+  m2.run();
 
   return 0;
 }

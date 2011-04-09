@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Kanomi_Manager.hpp>
 #include <Kanomi_Stencils.hpp>
+#include <Kanomi_ScalarField.hpp>
 
 using namespace kanomi;
 using namespace std;
@@ -60,44 +61,20 @@ struct D : public Base {
   }
 };
 
-template <class PTS>
-struct E {
-  typedef PTS PointsT;
-  E() : name("E") {
-    for(int i=0; i < num_points; ++i)
-      values[i] = 0;
-  }
-  E(const ScalarT val) : name("E") {
-    for(int i=0; i < num_points; ++i)
-      values[i] = val;
-  }
-  template <class M>
-  void setup(M & m, RCP<ParameterList> plist) {
-    cout << "setup " << name << endl;
-  }
-  void evaluate() {
-    cout << "Hello from " << name
-        << " with value = " << values[0]
-        << " x " << num_points
-        << endl;
-  }
-  static const int num_points = PointsT::num_points;
-  ScalarT values[num_points];
-  string name;
-};
+typedef ScalarField<QUAD_Q4> E;
 
 struct X;
 struct Y;
 typedef fusion::map<
     fusion::pair<X, fusion::list<C> >,
     fusion::pair<Y, fusion::list<D> >,
-    fusion::pair<Y, fusion::list<E<QUAD_Q4> > > > opt;
-typedef fusion::list<C,D,E<QUAD_Q4> > K_M;
+    fusion::pair<Y, fusion::list<E> > > opt;
+typedef fusion::list<C,D,E> K_M;
 template <class X> struct enabled {
   typedef enabled<X> type;
   static const bool value = false; };
-template <> struct enabled<E<QUAD_Q4> > {
-  typedef enabled<E<QUAD_Q4> > type;
+template <> struct enabled<E> {
+  typedef enabled<E> type;
   static const bool value = true; };
 struct enabled_pred { template <class X> struct apply : enabled<X> {}; };
 

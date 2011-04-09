@@ -25,6 +25,7 @@ SET ( SOURCES
 
 SET ( HEADERS
     Kanomi_Manager.hpp
+    Kanomi_ScalarField.hpp
     Kanomi_Stencils.hpp
     Kanomi_TypeInfo.hpp
 )

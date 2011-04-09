@@ -7,13 +7,13 @@ find_package(Boost 1.46.0 REQUIRED)
 include_directories (
     .
     ${Boost_INCLUDE_DIRS}
-    #${Trilinos_INCLUDE_DIRS}
-    #${Trilinos_TPL_INCLUDE_DIRS}
+    ${Trilinos_INCLUDE_DIRS}
+    ${Trilinos_TPL_INCLUDE_DIRS}
 )
 
 link_directories (
-    #${Trilinos_LIBRARY_DIRS} 
-    #${Trilinos_TPL_LIBRARY_DIRS} 
+    ${Trilinos_LIBRARY_DIRS} 
+    ${Trilinos_TPL_LIBRARY_DIRS} 
 )
 
 #
@@ -43,11 +43,6 @@ add_executable ( kanomi main.cpp)
 target_link_libraries ( kanomi 
     ${kanomi_LIBRARIES} 
     ${Boost_LIBRARIES}
-	 #${Trilinos_LIBRARIES}
-	 #${Trilinos_TPL_LIBRARIES}
+	${Trilinos_LIBRARIES}
+	${Trilinos_TPL_LIBRARIES}
 ) 
-
-SET ( kanomi_LIBRARIES
-    #shards
-    #intrepid
-)

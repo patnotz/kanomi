@@ -77,18 +77,14 @@ template <> struct enabled<E> {
 struct enabled_pred { template <class X> struct apply : enabled<X> {}; };
 
 int main(int argc, char * argv[]) {
-  RCP<ParameterList> plist = rcp(new ParameterList);
 
-  ParameterList & p_a = plist->sublist("A");
-  p_a.set<ScalarT>("value",9.13);
-  ParameterList & p_b = plist->sublist("B");
-  p_b.set<ScalarT>("value",2.5);
-  ParameterList & p_c = plist->sublist("C");
-  p_c.set<ScalarT>("value",7.3);
-  ParameterList & p_d = plist->sublist("D");
-  p_d.set<ScalarT>("value",10);
-  ParameterList & p_temperature = plist->sublist("TEMPERATURE");
-  p_temperature.set<ScalarT>("value",3.14159);
+  // This would be read from a user file
+  RCP<ParameterList> plist = rcp(new ParameterList);
+  plist->sublist("A").set<ScalarT>("value",9.13);
+  plist->sublist("B").set<ScalarT>("value",2.5);
+  plist->sublist("C").set<ScalarT>("value",7.3);
+  plist->sublist("D").set<ScalarT>("value",10);
+  plist->sublist("TEMPERATURE").set<ScalarT>("value",3.14159);
 
   typedef fusion::cons<A, fusion::cons<B, fusion::cons<C> > > Seq;
   Manager<Seq> m(plist);

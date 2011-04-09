@@ -30,11 +30,11 @@ struct DoEvaluate {
 };
 
 template <class S>
-struct manager {
+struct Manager {
   typedef S SequenceT;
-  typedef manager<SequenceT> ManagerT;
+  typedef Manager<SequenceT> ManagerT;
 
-  manager(Teuchos::RCP<Teuchos::ParameterList> p) :
+  Manager(Teuchos::RCP<Teuchos::ParameterList> p) :
     seq(SequenceT()), plist(p) {}
 
   void run() {
@@ -45,7 +45,7 @@ struct manager {
   }
 
   template <class T>
-  manager<SequenceT> & set(T t) {
+  Manager<SequenceT> & set(T t) {
     *boost::fusion::find<T>(seq) = t;
     return *this;
   }

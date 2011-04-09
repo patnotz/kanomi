@@ -104,7 +104,7 @@ int main(int argc, char * argv[]) {
   RCP<ParameterList> plist = rcp(new ParameterList);
 
   typedef fusion::cons<A, fusion::cons<B, fusion::cons<C> > > Seq;
-  manager<Seq> m(plist);
+  Manager<Seq> m(plist);
   m.set(A(9))
       .set(B(2))
       .set(C(7))
@@ -116,7 +116,7 @@ int main(int argc, char * argv[]) {
   typedef fusion::result_of::find_if<K_M, enabled_pred>::type KI_type;
   typedef fusion::result_of::value_of<KI_type>::type K_type;
   typedef fusion::cons<K_type, Seq> Seq2;
-  manager<Seq2> m2(plist);
+  Manager<Seq2> m2(plist);
   m2.set( m.get<A>() )
       .set( m.get<B>() )
       .set( m.get<C>() )

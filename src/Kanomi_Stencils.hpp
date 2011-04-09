@@ -3,6 +3,8 @@
 
 #include <Kanomi_TypeInfo.hpp>
 
+namespace kanomi {
+
 // Topology Information
 struct HEX {
   static const SizeT spatial_dimension = 3;
@@ -61,5 +63,7 @@ struct TRI_Q3 {
   static const ScalarT points[num_points*parametric_dimension];
   static const ScalarT weights[num_points];
 };
+
+} // namespace kanomi
 
 #endif /* KANOMI_STENCILS_HPP_ */

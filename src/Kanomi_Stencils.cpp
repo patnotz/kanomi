@@ -1,5 +1,7 @@
 #include <Kanomi_Stencils.hpp>
 
+namespace kanomi {
+
 const ScalarT HEX_Q8::points[num_points*parametric_dimension] = {
     0, 0, 0,  // 0
     0, 0, 0,  // 1
@@ -50,3 +52,4 @@ const ScalarT TRI_Q3::weights[num_points] = {
     0,  // 1
     0}; // 2
 
+} // namespace kanomi

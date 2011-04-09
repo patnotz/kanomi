@@ -7,6 +7,8 @@
 #include <Teuchos_ParameterList.hpp>
 #include <Kanomi_TypeInfo.hpp>
 
+namespace kanomi {
+
 template <class M>
 struct DoSetup {
   typedef M ManagerT;
@@ -57,5 +59,7 @@ struct Manager {
   SequenceT seq;
   Teuchos::RCP<Teuchos::ParameterList> plist;
 };
+
+} // namespace kanomi
 
 #endif /* KANOMI_MANAGER_HPP_ */

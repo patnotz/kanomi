@@ -2,6 +2,7 @@
 #include <Kanomi_Manager.hpp>
 #include <Kanomi_Stencils.hpp>
 
+using namespace kanomi;
 using namespace std;
 using namespace Teuchos;
 namespace fusion = boost::fusion;

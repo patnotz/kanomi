@@ -20,10 +20,13 @@ link_directories (
 # The kanomi library
 #
 SET ( SOURCES
+    Kanomi_Demangle.cpp
     Kanomi_Stencils.cpp
 )
 
 SET ( HEADERS
+    Kanomi_Demangle.hpp
+    Kanomi_FieldNames.hpp
     Kanomi_Manager.hpp
     Kanomi_ScalarField.hpp
     Kanomi_Stencils.hpp

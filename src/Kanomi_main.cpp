@@ -1,7 +1,8 @@
 #include <iostream>
+#include <Kanomi_FieldNames.hpp>
 #include <Kanomi_Manager.hpp>
-#include <Kanomi_Stencils.hpp>
 #include <Kanomi_ScalarField.hpp>
+#include <Kanomi_Stencils.hpp>
 
 using namespace kanomi;
 using namespace std;
@@ -61,7 +62,7 @@ struct D : public Base {
   }
 };
 
-typedef ScalarField<QUAD_Q4> E;
+typedef ScalarField<TEMPERATURE,QUAD_Q4> E;
 
 struct X;
 struct Y;

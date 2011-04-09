@@ -7,21 +7,27 @@
 
 namespace kanomi {
 
-template <class PTS>
+template <class FN, class PTS>
 struct ScalarField {
+  typedef FN FieldNameT;
   typedef PTS PointsT;
-  ScalarField() : name("ScalarField") {
+
+  ScalarField() : name(FieldNameT::name()) {
+    const ScalarT zero(0);
     for(int i=0; i < num_points; ++i)
-      values[i] = 0;
+      values[i] = zero;
   }
-  ScalarField(const ScalarT val) : name("ScalarField") {
+
+  ScalarField(const ScalarT val) : name(FieldNameT::name()) {
     for(int i=0; i < num_points; ++i)
       values[i] = val;
   }
+
   template <class M>
   void setup(M & m, Teuchos::RCP<Teuchos::ParameterList> plist) {
     std::cout << "setup " << name << std::endl;
   }
+
   void evaluate() {
     std::cout << "Hello from " << name
         << " with value = " << values[0]

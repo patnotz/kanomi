@@ -13,7 +13,7 @@ struct Base {
   Base(const string name_arg) :
     value(0), name(name_arg) {
   }
-  int value;
+  ScalarT value;
   string name;
   void evaluate() {
     cout << "Hello from " << name << " with value = " << value << endl;
@@ -24,18 +24,18 @@ struct A : public Base{
   A() : Base("A") {}
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
-    value = plist->sublist(name,true).get<int>("value");
+    value = plist->sublist(name,true).get<ScalarT>("value");
     cout << "setup " << name << endl;
   }
 };
 
 struct B : public Base {
   B() : Base("B"), b(0) {}
-  int b;
+  ScalarT b;
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
-    int a = m.template get<A>().value;
-    b = plist->sublist(name,true).get<int>("value");
+    ScalarT a = m.template get<A>().value;
+    b = plist->sublist(name,true).get<ScalarT>("value");
     value = a * b;
     cout << "setup B, a = " << a << endl;
   }
@@ -45,7 +45,7 @@ struct C : public Base {
   C() : Base("C") {}
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
-    value = plist->sublist(name,true).get<int>("value");
+    value = plist->sublist(name,true).get<ScalarT>("value");
     cout << "setup " << name << endl;
   }
 };
@@ -54,7 +54,7 @@ struct D : public Base {
   D() : Base("D") {}
   template <class M>
   void setup(M & m, RCP<ParameterList> plist) {
-    value = plist->sublist(name,true).get<int>("value");
+    value = plist->sublist(name,true).get<ScalarT>("value");
     cout << "setup " << name << endl;
   }
 };
@@ -80,13 +80,13 @@ int main(int argc, char * argv[]) {
   RCP<ParameterList> plist = rcp(new ParameterList);
 
   ParameterList & p_a = plist->sublist("A");
-  p_a.set<int>("value",9);
+  p_a.set<ScalarT>("value",9.13);
   ParameterList & p_b = plist->sublist("B");
-  p_b.set<int>("value",2);
+  p_b.set<ScalarT>("value",2.5);
   ParameterList & p_c = plist->sublist("C");
-  p_c.set<int>("value",7);
+  p_c.set<ScalarT>("value",7.3);
   ParameterList & p_d = plist->sublist("D");
-  p_d.set<int>("value",1);
+  p_d.set<ScalarT>("value",10);
   ParameterList & p_temperature = plist->sublist("TEMPERATURE");
   p_temperature.set<ScalarT>("value",3.14159);
 

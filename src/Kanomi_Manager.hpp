@@ -1,11 +1,11 @@
-#ifndef MANAGER_HPP_
-#define MANAGER_HPP_
+#ifndef KANOMI_MANAGER_HPP_
+#define KANOMI_MANAGER_HPP_
 
 #include <boost/fusion/algorithm.hpp>
 #include <boost/fusion/container.hpp>
 #include <boost/fusion/sequence.hpp>
 #include <Teuchos_ParameterList.hpp>
-#include <typeinfo.hpp>
+#include <Kanomi_TypeInfo.hpp>
 
 template <class M>
 struct DoSetup {
@@ -58,4 +58,4 @@ struct manager {
   Teuchos::RCP<Teuchos::ParameterList> plist;
 };
 
-#endif /* MANAGER_HPP_ */
+#endif /* KANOMI_MANAGER_HPP_ */

@@ -20,13 +20,13 @@ link_directories (
 # The kanomi library
 #
 SET ( SOURCES
-    stencils.cpp
+    Kanomi_Stencils.cpp
 )
 
 SET ( HEADERS
-    manager.hpp
-    stencils.hpp
-    typeinfo.hpp
+    Kanomi_Manager.hpp
+    Kanomi_Stencils.hpp
+    Kanomi_TypeInfo.hpp
 )
 
 add_library(kanomiLib ${SOURCES} ${HEADERS})
@@ -38,7 +38,7 @@ SET ( kanomi_LIBRARIES
 #
 # The kanomi executable
 #
-add_executable ( kanomi main.cpp)
+add_executable ( kanomi Kanomi_main.cpp)
 
 target_link_libraries ( kanomi 
     ${kanomi_LIBRARIES} 

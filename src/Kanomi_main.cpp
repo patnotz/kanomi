@@ -1,6 +1,6 @@
 #include <iostream>
-#include <manager.hpp>
-#include <stencils.hpp>
+#include <Kanomi_Manager.hpp>
+#include <Kanomi_Stencils.hpp>
 
 using namespace std;
 using namespace Teuchos;

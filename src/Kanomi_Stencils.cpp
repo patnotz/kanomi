@@ -1,4 +1,4 @@
-#include <stencils.hpp>
+#include <Kanomi_Stencils.hpp>
 
 const ScalarT HEX_Q8::points[num_points*parametric_dimension] = {
     0, 0, 0,  // 0

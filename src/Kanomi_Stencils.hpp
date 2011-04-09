@@ -1,7 +1,7 @@
-#ifndef STENCILS_HPP_
-#define STENCILS_HPP_
+#ifndef KANOMI_STENCILS_HPP_
+#define KANOMI_STENCILS_HPP_
 
-#include <typeinfo.hpp>
+#include <Kanomi_TypeInfo.hpp>
 
 // Topology Information
 struct HEX {
@@ -62,4 +62,4 @@ struct TRI_Q3 {
   static const ScalarT weights[num_points];
 };
 
-#endif /* STENCILS_HPP_ */
+#endif /* KANOMI_STENCILS_HPP_ */

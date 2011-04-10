@@ -28,6 +28,7 @@ SET ( HEADERS
     Kanomi_Demangle.hpp
     Kanomi_FieldNames.hpp
     Kanomi_Manager.hpp
+    Kanomi_Named.hpp
     Kanomi_ScalarField.hpp
     Kanomi_Stencils.hpp
     Kanomi_TypeInfo.hpp

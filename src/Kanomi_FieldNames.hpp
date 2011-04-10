@@ -1,28 +1,16 @@
 #ifndef KANOMI_FIELDNAMES_HPP_
 #define KANOMI_FIELDNAMES_HPP_
 
-#include <Kanomi_Demangle.hpp>
-#include <typeinfo>
+#include <Kanomi_Named.hpp>
 
 namespace kanomi {
 
-template <class T>
-struct FieldName {
-  static std::string name() {
-    std::string s = demangle( typeid(T).name() );
-    const char * s1 = s.c_str();
-    const char * s0 = s1;
-    while (*s1) {
-      if (*s1 == ':')
-        s0 = s1 + 1;
-      ++s1;
-    }
-    return std::string(s0, s1);
-  }
-};
-
-struct TEMPERATURE : FieldName<TEMPERATURE> {};
-
+KANOMI_NAMED_TAG( BASIS_FUNCTION );
+KANOMI_NAMED_TAG( DETJ );
+KANOMI_NAMED_TAG( GRAD_BASIS_FUNCTION );
+KANOMI_NAMED_TAG( TEMPERATURE );
+KANOMI_NAMED_TAG( THERMAL_CONDUCTIVITY );
+KANOMI_NAMED_TAG( QUADRATURE_WEIGHTS );
 
 } // namespace kanomi
 

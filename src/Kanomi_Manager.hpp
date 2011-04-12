@@ -7,6 +7,8 @@
 #include <Teuchos_ParameterList.hpp>
 #include <Kanomi_TypeInfo.hpp>
 
+namespace bf = boost::fusion;
+
 namespace kanomi {
 
 template <class M>
@@ -42,19 +44,19 @@ struct Manager {
   void run() {
     DoSetup<ManagerT> do_setup(*this,plist);
     DoEvaluate do_evaluate;
-    boost::fusion::for_each(seq,do_setup);
-    boost::fusion::for_each(seq,do_evaluate);
+    bf::for_each(seq,do_setup);
+    bf::for_each(seq,do_evaluate);
   }
 
   template <class T>
   Manager<SequenceT> & set(T t) {
-    *boost::fusion::find<T>(seq) = t;
+    *bf::find<T>(seq) = t;
     return *this;
   }
 
   template <class T>
   T & get() {
-    return *boost::fusion::find<T>(seq);
+    return *bf::find<T>(seq);
   }
   SequenceT seq;
   Teuchos::RCP<Teuchos::ParameterList> plist;

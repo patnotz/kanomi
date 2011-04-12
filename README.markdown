@@ -1,3 +1,10 @@
+# Kanomi 
+*An experiment in fusion*
+
+## About
+...
+
+## Build
 1. Create a build directory
     <pre><code>
     $ mkdir build

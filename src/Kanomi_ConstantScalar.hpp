@@ -1,5 +1,5 @@
-#ifndef KANOMI_SCALARFIELD_HPP_
-#define KANOMI_SCALARFIELD_HPP_
+#ifndef KANOMI_CONSTANTSCALAR_HPP_
+#define KANOMI_CONSTANTSCALAR_HPP_
 
 #include <Kanomi_ModelNames.hpp>
 #include <Kanomi_Named.hpp>
@@ -10,12 +10,12 @@
 namespace kanomi {
 
 template <class FIELD, class MODEL, class STENCIL>
-struct ScalarField {
+struct ConstantScalar {
   typedef FIELD FieldT;
   typedef MODEL ModelT;
   typedef STENCIL StencilT;
 
-  ScalarField() : name(FieldT::name() + "_" + ModelT::name()) {
+  ConstantScalar() : name(FieldT::name() + "_" + ModelT::name()) {
     const ScalarT zero(0);
     for(int i=0; i < num_points; ++i)
       values[i] = zero;
@@ -43,4 +43,4 @@ struct ScalarField {
 
 } // namespace kanomi
 
-#endif /* KANOMI_SCALARFIELD_HPP_ */
+#endif /* KANOMI_CONSTANTSCALAR_HPP_ */

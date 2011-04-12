@@ -25,9 +25,12 @@ SET ( SOURCES
 )
 
 SET ( HEADERS
+    Kanomi_ConstantScalar.hpp
     Kanomi_Demangle.hpp
     Kanomi_FieldNames.hpp
     Kanomi_Manager.hpp
+    Kanomi_Model.hpp
+    Kanomi_Models_ThermalConductivity.hpp
     Kanomi_Named.hpp
     Kanomi_ScalarField.hpp
     Kanomi_Stencils.hpp

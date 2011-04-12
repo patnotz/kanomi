@@ -4,6 +4,7 @@
 #include <Kanomi_Named.hpp>
 
 namespace kanomi {
+namespace field {
 
 KANOMI_NAMED_TAG( BASIS_FUNCTION );
 KANOMI_NAMED_TAG( DETJ );
@@ -12,6 +13,7 @@ KANOMI_NAMED_TAG( TEMPERATURE );
 KANOMI_NAMED_TAG( THERMAL_CONDUCTIVITY );
 KANOMI_NAMED_TAG( QUADRATURE_WEIGHTS );
 
+}
 } // namespace kanomi
 
 #endif /* KANOMI_FIELDNAMES_HPP_ */

@@ -6,6 +6,7 @@
 namespace kanomi {
 
 std::string demangle(const char * symbol);
+std::string demangle_no_scope(const char * symbol);
 
 } // namespace kanomi
 

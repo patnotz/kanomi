@@ -2,7 +2,20 @@
 *An experiment in fusion*
 
 ## About
-...
+There exist software designs for managing complexity in multiphysics 
+simulation software. These techniques construct a directed acyclic graph (DAG) view of 
+the mathematical subexpressions used in assembling complex systems of PDEs in 
+order to allow polymorphic substitution and reuse (among other benefits). One
+open source implementation is available in the [Phalanx][] package in 
+[Trilinos][].
+
+***Kanomi*** is an attempt to implement this same concept but to do so at 
+*compile time* using C++ template meta programming. Of course, for this to be 
+useful we need to cross the compile-time / run-time boundary so we utilize the
+Boost [Fusion][] library to do that as well as many of the ideas and techniques
+outlined in [*Modern C++ Design*][MCPPD] by Andrei Alexandrescu. Ultimately, 
+the code will utilize the [Kokkos][] compute node API for deployment to 
+various multicore architecutres.
 
 ## Build
 1. Create a build directory
@@ -24,3 +37,18 @@
     <pre><code>
     src/kanomi
     </code></pre>
+
+## TODO
+ - `User_Config.hpp` needs to define root-level dependencies
+ - Need to have inner typedefs for prereqs (as a list)
+ - Switch from `fusion::list<>` to `fusion::cons<>`?
+ - Populate stencil classes with real quadrature points
+ - Choose an array class (`Kokkos::MDArray` ?)
+ - Evaluate manager in a Kokkos Node (`parallel_for`)
+ - Doxygen (?)
+
+[Trilinos]: http://trilinos.sandia.gov/
+[Phalanx]: http://trilinos.sandia.gov/packages/phalanx/
+[Kokkos]: http://trilinos.sandia.gov/packages/kokkos/
+[Fusion]: http://www.boost.org/doc%/libs/release/libs/fusion
+[MCPPD]: http://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315

@@ -39,13 +39,18 @@ various multicore architecutres.
     </code></pre>
 
 ## TODO
+ - Need central memory manager and getters
  - `User_Config.hpp` needs to define root-level dependencies
  - Need to have inner typedefs for prereqs (as a list)
  - Switch from `fusion::list<>` to `fusion::cons<>`?
+ - Need a strategy for dependencies
  - Populate stencil classes with real quadrature points
  - Choose an array class (`Kokkos::MDArray` ?)
  - Evaluate manager in a Kokkos Node (`parallel_for`)
- - Doxygen (?)
+ - Doxygen and github-pages
+   * main page content
+   * copy of source code?
+   * version identifier
 
 [Trilinos]: http://trilinos.sandia.gov/
 [Phalanx]: http://trilinos.sandia.gov/packages/phalanx/

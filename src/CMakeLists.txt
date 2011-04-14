@@ -1,5 +1,13 @@
 cmake_minimum_required(VERSION 2.8)
 
+# Auto-version generation
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
+    COMMAND ${PROJECT_SOURCE_DIR}/version-gen.sh ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
+    DEPENDS 
+    COMMENT "Generating auto-version header file from Git..."
+)
+
 #
 # External dependencies and paths
 #
@@ -9,6 +17,7 @@ include_directories (
     ${Boost_INCLUDE_DIRS}
     ${Trilinos_INCLUDE_DIRS}
     ${Trilinos_TPL_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_BINARY_DIR} # for Kanomi_version.hpp
 )
 
 link_directories (
@@ -22,19 +31,23 @@ link_directories (
 SET ( SOURCES
     Kanomi_Demangle.cpp
     Kanomi_Stencils.cpp
+    Kanomi_version.cpp
 )
 
 SET ( HEADERS
+    ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
     Kanomi_ConstantScalar.hpp
     Kanomi_Demangle.hpp
     Kanomi_FieldNames.hpp
     Kanomi_Manager.hpp
-    Kanomi_Model.hpp
-    Kanomi_Models_ThermalConductivity.hpp
+    Kanomi_Factory.hpp
+    Kanomi_Factory_ThermalConductivity.hpp
     Kanomi_Named.hpp
     Kanomi_ScalarField.hpp
+    Kanomi_ScalarPolynomial.hpp
     Kanomi_Stencils.hpp
     Kanomi_TypeInfo.hpp
+    Kanomi_version.hpp
 )
 
 add_library(kanomiLib ${SOURCES} ${HEADERS})

@@ -19,7 +19,9 @@ struct ScalarPolynomial {
   typedef STENCIL StencilT;
   typedef VARIABLE VariableT;
 
-  typedef bf::cons<VariableT> PrereqsT;
+  typedef bf::cons<
+      bf::pair<VariableT, StencilT>
+  > PrereqsT;
 
   ScalarPolynomial() :
     name(FieldT::name() + "_" + ModelT::name()), order(0) {

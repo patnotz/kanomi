@@ -17,13 +17,12 @@ struct Factory<field::THERMAL_CONDUCTIVITY, STENCIL> {
   typedef field::THERMAL_CONDUCTIVITY FieldT;
   typedef STENCIL StencilT;
   typedef bf::list<
-      ScalarField<field::THERMAL_CONDUCTIVITY,model::FIELD_DATA,StencilT>,
-      ConstantScalar<field::THERMAL_CONDUCTIVITY,model::CONSTANT,StencilT>,
-      ScalarPolynomial<field::THERMAL_CONDUCTIVITY,model::POLYNOMIAL,StencilT,field::TEMPERATURE>
+      ScalarField<FieldT,model::FIELD_DATA,StencilT>,
+      ConstantScalar<FieldT,model::CONSTANT,StencilT>,
+      ScalarPolynomial<FieldT,model::POLYNOMIAL,StencilT,field::TEMPERATURE>
   > list;
+  typedef typename ModelProvider<list, FieldT>::type ProviderT;
 };
-
-
 
 } // namespace kanomi
 

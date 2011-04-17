@@ -28,6 +28,13 @@ struct enabled_pred {
       static const bool value = true; \
     }
 
+template <class MODELS, class FIELD>
+struct ModelProvider {
+  typedef typename bf::result_of::
+      find_if<MODELS, enabled_pred<FIELD> >::type iter_type;
+  typedef typename bf::result_of::value_of<iter_type>::type type;
+};
+
 } // namespace kanomi
 
 #endif /* KANOMI_FACTORY_HPP_ */

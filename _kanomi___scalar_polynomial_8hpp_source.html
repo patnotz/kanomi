@@ -101,68 +101,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00019"></a>00019   <span class="keyword">typedef</span> STENCIL StencilT;
 <a name="l00020"></a>00020   <span class="keyword">typedef</span> VARIABLE VariableT;
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022   <span class="keyword">typedef</span> bf::cons&lt;VariableT&gt; PrereqsT;
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024   <a class="code" href="structkanomi_1_1_scalar_polynomial.html">ScalarPolynomial</a>() :
-<a name="l00025"></a>00025     name(FieldT::name() + <span class="stringliteral">&quot;_&quot;</span> + ModelT::name()), order(0) {
-<a name="l00026"></a>00026     <span class="keyword">const</span> ScalarT zero(0);
-<a name="l00027"></a>00027     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_points; ++i)
-<a name="l00028"></a>00028       values[i] = zero;
-<a name="l00029"></a>00029   }
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031   <span class="keyword">template</span> &lt;<span class="keyword">class</span> M&gt;
-<a name="l00032"></a>00032   <span class="keywordtype">void</span> setup(M &amp; m, Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist) {
-<a name="l00033"></a>00033     std::cout &lt;&lt; <span class="stringliteral">&quot;setup &quot;</span> &lt;&lt; name &lt;&lt; std::endl;
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,VariableT&gt;::type ProviderT;
-<a name="l00036"></a>00036     variable = m.template get&lt;ProviderT&gt;().values;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038     Teuchos::ParameterList &amp; my_plist = plist-&gt;sublist(name,<span class="keyword">true</span>);
-<a name="l00039"></a>00039     order = my_plist.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;order&quot;</span>);
-<a name="l00040"></a>00040     c.resize(order);
-<a name="l00041"></a>00041     <span class="keyword">const</span> ScalarT default_of_zero = 0;
-<a name="l00042"></a>00042     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; order+1; ++i) {
-<a name="l00043"></a>00043       std::ostringstream os;
-<a name="l00044"></a>00044       os &lt;&lt; <span class="stringliteral">&quot;C_&quot;</span> &lt;&lt; i;
-<a name="l00045"></a>00045       std::string c_i = os.str();
-<a name="l00046"></a>00046       c[i] = my_plist.get&lt;ScalarT&gt;(c_i, default_of_zero);
-<a name="l00047"></a>00047       std::cout &lt;&lt; <span class="stringliteral">&quot;C[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;] = &quot;</span> &lt;&lt; c[i] &lt;&lt; std::endl;
-<a name="l00048"></a>00048     }
-<a name="l00049"></a>00049   }
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051   <span class="keywordtype">void</span> evaluate() {
-<a name="l00052"></a>00052     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> point=0; point &lt; num_points; ++point) {
-<a name="l00053"></a>00053       ScalarT val = c[order];
-<a name="l00054"></a>00054       <span class="keyword">const</span> ScalarT var = variable[point];
-<a name="l00055"></a>00055       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> n=order-1; n &gt;= 0; --n) {
-<a name="l00056"></a>00056         val = var * val + c[n];
-<a name="l00057"></a>00057       }
-<a name="l00058"></a>00058       values[point] = val;
-<a name="l00059"></a>00059     }
-<a name="l00060"></a>00060     std::cout &lt;&lt; <span class="stringliteral">&quot;Hello from &quot;</span> &lt;&lt; name
-<a name="l00061"></a>00061         &lt;&lt; <span class="stringliteral">&quot; (model: &quot;</span> &lt;&lt; ModelT::name() &lt;&lt; <span class="stringliteral">&quot;) &quot;</span>
-<a name="l00062"></a>00062         &lt;&lt; <span class="stringliteral">&quot; with value = &quot;</span> &lt;&lt; values[0]
-<a name="l00063"></a>00063         &lt;&lt; <span class="stringliteral">&quot; with var = &quot;</span> &lt;&lt; variable[0]
-<a name="l00064"></a>00064         &lt;&lt; <span class="stringliteral">&quot; x &quot;</span> &lt;&lt; num_points
-<a name="l00065"></a>00065         &lt;&lt; std::endl;
-<a name="l00066"></a>00066   }
-<a name="l00067"></a>00067   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_points = StencilT::num_points;
-<a name="l00068"></a>00068   ScalarT values[num_points];
-<a name="l00069"></a>00069   ScalarT * variable;
-<a name="l00070"></a>00070   <span class="keywordtype">int</span> order;
-<a name="l00071"></a>00071   std::string name;
-<a name="l00072"></a>00072   std::vector&lt;ScalarT&gt; c;
-<a name="l00073"></a>00073 };
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 } <span class="comment">// namespace kanomi</span>
+<a name="l00022"></a>00022   <span class="keyword">typedef</span> bf::cons&lt;
+<a name="l00023"></a>00023       bf::pair&lt;VariableT, StencilT&gt;
+<a name="l00024"></a>00024   &gt; PrereqsT;
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026   <a class="code" href="structkanomi_1_1_scalar_polynomial.html">ScalarPolynomial</a>() :
+<a name="l00027"></a>00027     name(FieldT::name() + <span class="stringliteral">&quot;_&quot;</span> + ModelT::name()), order(0) {
+<a name="l00028"></a>00028     <span class="keyword">const</span> ScalarT zero(0);
+<a name="l00029"></a>00029     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_points; ++i)
+<a name="l00030"></a>00030       values[i] = zero;
+<a name="l00031"></a>00031   }
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033   <span class="keyword">template</span> &lt;<span class="keyword">class</span> M&gt;
+<a name="l00034"></a>00034   <span class="keywordtype">void</span> setup(M &amp; m, Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist) {
+<a name="l00035"></a>00035     std::cout &lt;&lt; <span class="stringliteral">&quot;setup &quot;</span> &lt;&lt; name &lt;&lt; std::endl;
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,VariableT&gt;::type ProviderT;
+<a name="l00038"></a>00038     variable = m.template get&lt;ProviderT&gt;().values;
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     Teuchos::ParameterList &amp; my_plist = plist-&gt;sublist(name,<span class="keyword">true</span>);
+<a name="l00041"></a>00041     order = my_plist.get&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;order&quot;</span>);
+<a name="l00042"></a>00042     c.resize(order);
+<a name="l00043"></a>00043     <span class="keyword">const</span> ScalarT default_of_zero = 0;
+<a name="l00044"></a>00044     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; order+1; ++i) {
+<a name="l00045"></a>00045       std::ostringstream os;
+<a name="l00046"></a>00046       os &lt;&lt; <span class="stringliteral">&quot;C_&quot;</span> &lt;&lt; i;
+<a name="l00047"></a>00047       std::string c_i = os.str();
+<a name="l00048"></a>00048       c[i] = my_plist.get&lt;ScalarT&gt;(c_i, default_of_zero);
+<a name="l00049"></a>00049       std::cout &lt;&lt; <span class="stringliteral">&quot;C[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;] = &quot;</span> &lt;&lt; c[i] &lt;&lt; std::endl;
+<a name="l00050"></a>00050     }
+<a name="l00051"></a>00051   }
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053   <span class="keywordtype">void</span> evaluate() {
+<a name="l00054"></a>00054     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> point=0; point &lt; num_points; ++point) {
+<a name="l00055"></a>00055       ScalarT val = c[order];
+<a name="l00056"></a>00056       <span class="keyword">const</span> ScalarT var = variable[point];
+<a name="l00057"></a>00057       <span class="keywordflow">for</span>(<span class="keywordtype">int</span> n=order-1; n &gt;= 0; --n) {
+<a name="l00058"></a>00058         val = var * val + c[n];
+<a name="l00059"></a>00059       }
+<a name="l00060"></a>00060       values[point] = val;
+<a name="l00061"></a>00061     }
+<a name="l00062"></a>00062     std::cout &lt;&lt; <span class="stringliteral">&quot;Hello from &quot;</span> &lt;&lt; name
+<a name="l00063"></a>00063         &lt;&lt; <span class="stringliteral">&quot; (model: &quot;</span> &lt;&lt; ModelT::name() &lt;&lt; <span class="stringliteral">&quot;) &quot;</span>
+<a name="l00064"></a>00064         &lt;&lt; <span class="stringliteral">&quot; with value = &quot;</span> &lt;&lt; values[0]
+<a name="l00065"></a>00065         &lt;&lt; <span class="stringliteral">&quot; with var = &quot;</span> &lt;&lt; variable[0]
+<a name="l00066"></a>00066         &lt;&lt; <span class="stringliteral">&quot; x &quot;</span> &lt;&lt; num_points
+<a name="l00067"></a>00067         &lt;&lt; std::endl;
+<a name="l00068"></a>00068   }
+<a name="l00069"></a>00069   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_points = StencilT::num_points;
+<a name="l00070"></a>00070   ScalarT values[num_points];
+<a name="l00071"></a>00071   ScalarT * variable;
+<a name="l00072"></a>00072   <span class="keywordtype">int</span> order;
+<a name="l00073"></a>00073   std::string name;
+<a name="l00074"></a>00074   std::vector&lt;ScalarT&gt; c;
+<a name="l00075"></a>00075 };
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_SCALARPOLYNOMIAL_HPP_ */</span>
+<a name="l00077"></a>00077 } <span class="comment">// namespace kanomi</span>
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_SCALARPOLYNOMIAL_HPP_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>Kanomi_ScalarPolynomial.hpp</b>      </li>
-      <li class="footer">Generated on Thu Apr 14 2011 13:27:57 for Kanomi by&#160;
+      <li class="footer">Generated on Tue Apr 19 2011 09:03:38 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

@@ -100,8 +100,9 @@ typedef MODEL&#160;</td><td class="memItemRight" valign="bottom"><b>ModelT</b></
 typedef STENCIL&#160;</td><td class="memItemRight" valign="bottom"><b>StencilT</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad292803089fa9cbc68179ca307aade91"></a><!-- doxytag: member="kanomi::ScalarPolynomial::VariableT" ref="ad292803089fa9cbc68179ca307aade91" args="" -->
 typedef VARIABLE&#160;</td><td class="memItemRight" valign="bottom"><b>VariableT</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b90cfd36e436581f546159b0bcb6bec"></a><!-- doxytag: member="kanomi::ScalarPolynomial::PrereqsT" ref="a9b90cfd36e436581f546159b0bcb6bec" args="" -->
-typedef bf::cons&lt; VariableT &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PrereqsT</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2a14524d34594296690104831d3d39b"></a><!-- doxytag: member="kanomi::ScalarPolynomial::PrereqsT" ref="ae2a14524d34594296690104831d3d39b" args="" -->
+typedef bf::cons&lt; bf::pair<br class="typebreak"/>
+&lt; VariableT, StencilT &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PrereqsT</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2"><a class="anchor" id="aa645722a93415d9410c7f6afe007646d"></a><!-- doxytag: member="kanomi::ScalarPolynomial::setup" ref="aa645722a93415d9410c7f6afe007646d" args="(M &amp;m, Teuchos::RCP&lt; Teuchos::ParameterList &gt; plist)" -->
@@ -141,7 +142,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>num_point
     <ul>
       <li class="navelem"><b>kanomi</b>      </li>
       <li class="navelem"><a class="el" href="structkanomi_1_1_scalar_polynomial.html">ScalarPolynomial</a>      </li>
-      <li class="footer">Generated on Thu Apr 14 2011 13:27:57 for Kanomi by&#160;
+      <li class="footer">Generated on Tue Apr 19 2011 09:03:39 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

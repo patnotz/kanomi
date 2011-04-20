@@ -5,7 +5,6 @@
 #include <Kanomi_ScalarField.hpp>
 #include <Kanomi_Stencils.hpp>
 #include <Kanomi_version.hpp>
-#include <Kanomi_EQ_Energy.hpp>
 #include <User_Config.hpp>
 
 using namespace std;
@@ -88,17 +87,18 @@ int main(int argc, char * argv[]) {
   plist->sublist("THERMAL_CONDUCTIVITY_POLYNOMIAL").set<ScalarT>("C_2",0.001);
   plist->sublist("TEMPERATURE").set<ScalarT>("value",3.14159);
 
-  typedef bf::cons<A, bf::cons<B, bf::cons<C> > > Seq;
-  Manager<Seq> m(plist);
+  //typedef bf::cons<A, bf::cons<B, bf::cons<C> > > Seq;
+  typedef typename BuildManager<UserRootsT>::ManagerT ManagerT;
+  ManagerT m(plist);
   m.run();
 
   //typedef ScalarField<field::TEMPERATURE,model::FIELD_DATA,QUAD_Q4> TempT;
-  typedef typename Factory<field::TEMPERATURE,QUAD_Q4>::ProviderT TempT;
-  typedef typename Factory<field::THERMAL_CONDUCTIVITY,QUAD_Q4>::ProviderT K_type;
-  typedef bf::cons<TempT, bf::cons<K_type, Seq> > Seq2;
+  //typedef typename Factory<field::TEMPERATURE,QUAD_Q4>::ProviderT TempT;
+  //typedef typename Factory<field::THERMAL_CONDUCTIVITY,QUAD_Q4>::ProviderT K_type;
+  //typedef bf::cons<TempT, bf::cons<K_type, Seq> > Seq2;
 
-  Manager<Seq2> m2(plist);
-  m2.run();
+  //Manager<Seq2> m2(plist);
+  //m2.run();
 
   return 0;
 }

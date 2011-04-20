@@ -6,6 +6,7 @@
 #include <boost/fusion/sequence.hpp>
 #include <Teuchos_ParameterList.hpp>
 #include <Kanomi_TypeInfo.hpp>
+#include <Kanomi_Build.hpp>
 
 namespace bf = boost::fusion;
 
@@ -86,6 +87,13 @@ struct Manager {
   SequenceT seq;
   Teuchos::RCP<Teuchos::ParameterList> plist;
 };
+
+template <class ROOTS>
+struct BuildManager {
+  typedef typename Build<nil,ROOTS,nil>::SequenceT SequenceT;
+  typedef Manager<SequenceT> ManagerT;
+};
+
 
 } // namespace kanomi
 

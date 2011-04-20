@@ -15,6 +15,8 @@ struct ScalarField {
   typedef MODEL ModelT;
   typedef STENCIL StencilT;
 
+  typedef bf::nil PrereqsT;
+
   ScalarField() : name(FieldT::name() + "_" + ModelT::name()) {
     const ScalarT zero(0);
     for(int i=0; i < num_points; ++i)

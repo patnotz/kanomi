@@ -41,12 +41,13 @@ various multicore architecutres.
 ## TODO
  - Need central memory manager and getters
  - `User_Config.hpp` needs to define root-level dependencies
- - Need to have inner typedefs for prereqs (as a list)
+ - Better compilation errors for missing Factory<FieldT,StencilT> 
  - Switch from `fusion::list<>` to `fusion::cons<>`?
  - Need a strategy for dependencies
  - Populate stencil classes with real quadrature points
  - Choose an array class (`Kokkos::MDArray` ?)
  - Evaluate manager in a Kokkos Node (`parallel_for`)
+ - Fix version-gen.sh on rebuilds
  - Doxygen and github-pages
    * main page content
    * copy of source code?

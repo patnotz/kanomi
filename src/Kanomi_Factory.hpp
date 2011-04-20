@@ -32,7 +32,7 @@ template <class MODELS, class FIELD>
 struct ModelProvider {
   typedef typename bf::result_of::
       find_if<MODELS, enabled_pred<FIELD> >::type iter_type;
-  typedef typename bf::result_of::value_of<iter_type>::type type;
+  typedef typename bf::result_of::value_of<iter_type>::type ProviderT;
 };
 
 } // namespace kanomi

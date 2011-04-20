@@ -36,6 +36,7 @@ SET ( SOURCES
 
 SET ( HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
+    Kanomi_Build.hpp
     Kanomi_ConstantScalar.hpp
     Kanomi_Demangle.hpp
     Kanomi_EQ.hpp
@@ -44,6 +45,7 @@ SET ( HEADERS
     Kanomi_Factory_ThermalConductivity.hpp
     Kanomi_FieldNames.hpp
     Kanomi_Manager.hpp
+    Kanomi_mpl.hpp
     Kanomi_Named.hpp
     Kanomi_ScalarField.hpp
     Kanomi_ScalarPolynomial.hpp

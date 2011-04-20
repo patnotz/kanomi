@@ -21,7 +21,7 @@ struct Factory<field::THERMAL_CONDUCTIVITY, STENCIL> {
       ConstantScalar<FieldT,model::CONSTANT,StencilT>,
       ScalarPolynomial<FieldT,model::POLYNOMIAL,StencilT,field::TEMPERATURE>
   > list;
-  typedef typename ModelProvider<list, FieldT>::type ProviderT;
+  typedef typename ModelProvider<list, FieldT>::ProviderT ProviderT;
 };
 
 } // namespace kanomi

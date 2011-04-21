@@ -3,12 +3,19 @@ var NAVTREE =
   [ "Kanomi", "index.html", [
     [ "Class List", "annotated.html", [
       [ "kanomi::A", "structkanomi_1_1_a.html", null ],
-      [ "kanomi::enabled_pred< FIELD >::apply< IMPL >", "structkanomi_1_1enabled__pred_1_1apply.html", null ],
       [ "kanomi::provides_field< FIELD >::apply< IMPL >", "structkanomi_1_1provides__field_1_1apply.html", null ],
+      [ "kanomi::enabled_pred< FIELD >::apply< IMPL >", "structkanomi_1_1enabled__pred_1_1apply.html", null ],
       [ "kanomi::B", "structkanomi_1_1_b.html", null ],
       [ "kanomi::Base", "structkanomi_1_1_base.html", null ],
+      [ "kanomi::Build< S, bf::cons< RH, RT >, nil >", "structkanomi_1_1_build_3_01_s_00_01bf_1_1cons_3_01_r_h_00_01_r_t_01_4_00_01nil_01_4.html", null ],
+      [ "kanomi::Build< S, nil, nil >", "structkanomi_1_1_build_3_01_s_00_01nil_00_01nil_01_4.html", null ],
+      [ "kanomi::Build< S, R, bf::cons< PH, PT > >", "structkanomi_1_1_build_3_01_s_00_01_r_00_01bf_1_1cons_3_01_p_h_00_01_p_t_01_4_01_4.html", null ],
+      [ "kanomi::BuildManager< ROOTS >", "structkanomi_1_1_build_manager.html", null ],
       [ "kanomi::C", "structkanomi_1_1_c.html", null ],
       [ "kanomi::ConstantScalar< FIELD, MODEL, STENCIL >", "structkanomi_1_1_constant_scalar.html", null ],
+      [ "kanomi::contains< bf::cons< HEAD, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_h_e_a_d_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
+      [ "kanomi::contains< bf::cons< TYPE, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_t_y_p_e_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
+      [ "kanomi::contains< bf::nil, TYPE >", "structkanomi_1_1contains_3_01bf_1_1nil_00_01_t_y_p_e_01_4.html", null ],
       [ "kanomi::D", "structkanomi_1_1_d.html", null ],
       [ "kanomi::DoEvaluate", "structkanomi_1_1_do_evaluate.html", null ],
       [ "kanomi::DoSetup< M >", "structkanomi_1_1_do_setup.html", null ],
@@ -33,7 +40,10 @@ var NAVTREE =
       [ "kanomi::TET", "structkanomi_1_1_t_e_t.html", null ],
       [ "kanomi::TET_Q4", "structkanomi_1_1_t_e_t___q4.html", null ],
       [ "kanomi::TRI", "structkanomi_1_1_t_r_i.html", null ],
-      [ "kanomi::TRI_Q3", "structkanomi_1_1_t_r_i___q3.html", null ]
+      [ "kanomi::TRI_Q3", "structkanomi_1_1_t_r_i___q3.html", null ],
+      [ "kanomi::unique_cons< T, S >", "structkanomi_1_1unique__cons.html", null ],
+      [ "kanomi::unique_cons< T, S >::unique_cons_impl< SS, TT, boost::mpl::false_ >", "structkanomi_1_1unique__cons_1_1unique__cons__impl_3_01_s_s_00_01_t_t_00_01boost_1_1mpl_1_1false___01_4.html", null ],
+      [ "kanomi::unique_cons< T, S >::unique_cons_impl< SS, TT, boost::mpl::true_ >", "structkanomi_1_1unique__cons_1_1unique__cons__impl_3_01_s_s_00_01_t_t_00_01boost_1_1mpl_1_1true___01_4.html", null ]
     ] ],
     [ "Class Index", "classes.html", null ],
     [ "Class Hierarchy", "hierarchy.html", [
@@ -44,7 +54,14 @@ var NAVTREE =
         [ "kanomi::C", "structkanomi_1_1_c.html", null ],
         [ "kanomi::D", "structkanomi_1_1_d.html", null ]
       ] ],
+      [ "kanomi::Build< S, bf::cons< RH, RT >, nil >", "structkanomi_1_1_build_3_01_s_00_01bf_1_1cons_3_01_r_h_00_01_r_t_01_4_00_01nil_01_4.html", null ],
+      [ "kanomi::Build< S, nil, nil >", "structkanomi_1_1_build_3_01_s_00_01nil_00_01nil_01_4.html", null ],
+      [ "kanomi::Build< S, R, bf::cons< PH, PT > >", "structkanomi_1_1_build_3_01_s_00_01_r_00_01bf_1_1cons_3_01_p_h_00_01_p_t_01_4_01_4.html", null ],
+      [ "kanomi::BuildManager< ROOTS >", "structkanomi_1_1_build_manager.html", null ],
       [ "kanomi::ConstantScalar< FIELD, MODEL, STENCIL >", "structkanomi_1_1_constant_scalar.html", null ],
+      [ "kanomi::contains< bf::cons< HEAD, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_h_e_a_d_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
+      [ "kanomi::contains< bf::cons< TYPE, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_t_y_p_e_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
+      [ "kanomi::contains< bf::nil, TYPE >", "structkanomi_1_1contains_3_01bf_1_1nil_00_01_t_y_p_e_01_4.html", null ],
       [ "kanomi::DoEvaluate", "structkanomi_1_1_do_evaluate.html", null ],
       [ "kanomi::DoSetup< M >", "structkanomi_1_1_do_setup.html", null ],
       [ "kanomi::enabled< FIELD, MODEL >", "structkanomi_1_1enabled.html", null ],
@@ -73,12 +90,16 @@ var NAVTREE =
       [ "kanomi::TET", "structkanomi_1_1_t_e_t.html", null ],
       [ "kanomi::TET_Q4", "structkanomi_1_1_t_e_t___q4.html", null ],
       [ "kanomi::TRI", "structkanomi_1_1_t_r_i.html", null ],
-      [ "kanomi::TRI_Q3", "structkanomi_1_1_t_r_i___q3.html", null ]
+      [ "kanomi::TRI_Q3", "structkanomi_1_1_t_r_i___q3.html", null ],
+      [ "kanomi::unique_cons< T, S >", "structkanomi_1_1unique__cons.html", null ],
+      [ "kanomi::unique_cons< T, S >::unique_cons_impl< SS, TT, boost::mpl::false_ >", "structkanomi_1_1unique__cons_1_1unique__cons__impl_3_01_s_s_00_01_t_t_00_01boost_1_1mpl_1_1false___01_4.html", null ],
+      [ "kanomi::unique_cons< T, S >::unique_cons_impl< SS, TT, boost::mpl::true_ >", "structkanomi_1_1unique__cons_1_1unique__cons__impl_3_01_s_s_00_01_t_t_00_01boost_1_1mpl_1_1true___01_4.html", null ]
     ] ],
     [ "File List", "files.html", [
       [ "build/CMakeFiles/CompilerIdC/CMakeCCompilerId.c", null, null ],
       [ "build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp", null, null ],
       [ "build/src/Kanomi_autoversion.hpp", null, null ],
+      [ "src/Kanomi_Build.hpp", null, null ],
       [ "src/Kanomi_ConstantScalar.hpp", null, null ],
       [ "src/Kanomi_Demangle.cpp", null, null ],
       [ "src/Kanomi_Demangle.hpp", null, null ],
@@ -90,6 +111,7 @@ var NAVTREE =
       [ "src/Kanomi_main.cpp", null, null ],
       [ "src/Kanomi_Manager.hpp", null, null ],
       [ "src/Kanomi_ModelNames.hpp", null, null ],
+      [ "src/Kanomi_mpl.hpp", null, null ],
       [ "src/Kanomi_Named.hpp", null, null ],
       [ "src/Kanomi_ScalarField.hpp", null, null ],
       [ "src/Kanomi_ScalarPolynomial.hpp", null, null ],

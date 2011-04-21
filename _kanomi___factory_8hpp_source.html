@@ -114,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00032"></a><a class="code" href="structkanomi_1_1_model_provider.html">00032</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_model_provider.html">ModelProvider</a> {
 <a name="l00033"></a>00033   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::
 <a name="l00034"></a>00034       find_if&lt;MODELS, enabled_pred&lt;FIELD&gt; &gt;::type iter_type;
-<a name="l00035"></a>00035   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::value_of&lt;iter_type&gt;::type type;
+<a name="l00035"></a>00035   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::value_of&lt;iter_type&gt;::type ProviderT;
 <a name="l00036"></a>00036 };
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038 } <span class="comment">// namespace kanomi</span>
@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>Kanomi_Factory.hpp</b>      </li>
-      <li class="footer">Generated on Tue Apr 19 2011 09:03:38 for Kanomi by&#160;
+      <li class="footer">Generated on Thu Apr 21 2011 08:29:23 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

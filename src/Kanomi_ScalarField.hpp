@@ -17,7 +17,7 @@ struct ScalarField {
 
   typedef bf::nil PrereqsT;
 
-  ScalarField() : name(FieldT::name() + "_" + ModelT::name()) {
+  ScalarField() : name(FieldT::name() + " (" + ModelT::name() + ")") {
     const ScalarT zero(0);
     for(int i=0; i < num_points; ++i)
       values[i] = zero;
@@ -25,7 +25,8 @@ struct ScalarField {
 
   template <class M>
   void setup(M & m, Teuchos::RCP<Teuchos::ParameterList> plist) {
-    const ScalarT val = plist->sublist(name,true).get<ScalarT>("value");
+    //const ScalarT val = plist->sublist(name,true).get<ScalarT>("value");
+    const ScalarT val = 1.111;
     for(int i=0; i < num_points; ++i)
       values[i] = val;
     std::cout << "setup " << name << std::endl;

@@ -31,10 +31,10 @@ struct Build<S, R, bf::cons<PH,PT> > {
   typedef typename PH::second_type StencilT;
 
   // Find the type that supplies this prereq
-  typedef typename Factory<FieldT, StencilT>::ProviderT T;
+  typedef typename Factory<FieldT, StencilT>::ProviderT PrereqProviderT;
 
-  // add the prereq to the front of the list and recurse
-  typedef typename unique_cons<T, R>::type NextR;
+  // add the prereq provider to the front of the list and recurse
+  typedef typename unique_back_cons<PrereqProviderT, R>::type NextR;
   typedef typename Build<S, NextR, PT>::SequenceT SequenceT;
 };
 

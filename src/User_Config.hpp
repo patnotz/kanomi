@@ -18,8 +18,8 @@ ENABLE_MODEL(field::THERMAL_CONDUCTIVITY,model::POLYNOMIAL);
 namespace kanomi {
 
 // For now, use this as a root-level dependency...
-typedef typename Factory<field::THERMAL_CONDUCTIVITY, QUAD_Q4>::ProviderT PK;
-typedef bf::cons<PK> UserRootsT;
+typedef typename Factory<field::ENERGY_RESIDUAL, QUAD_Q4>::ProviderT ResidP;
+typedef bf::cons<ResidP> UserRootsT;
 
 } // namespace kanomi
 

@@ -17,7 +17,7 @@ struct ConstantScalar {
 
   typedef bf::nil PrereqsT;
 
-  ConstantScalar() : name(FieldT::name() + "_" + ModelT::name()) {
+  ConstantScalar() : name(FieldT::name() + " (" + ModelT::name() + ")") {
     const ScalarT zero(0);
     for(int i=0; i < num_points; ++i)
       values[i] = zero;

@@ -24,7 +24,7 @@ struct ScalarPolynomial {
   > PrereqsT;
 
   ScalarPolynomial() :
-    name(FieldT::name() + "_" + ModelT::name()), order(0) {
+    name(FieldT::name() + " (" + ModelT::name() + ")"), order(0) {
     const ScalarT zero(0);
     for(int i=0; i < num_points; ++i)
       values[i] = zero;

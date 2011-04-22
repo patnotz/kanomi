@@ -9,6 +9,14 @@ namespace kanomi {
 
 typedef bf::nil nil;
 
+template <class A, class B>
+struct is_same {
+  typedef boost::mpl::false_ type;
+};
+template <class A>
+struct is_same<A,A> {
+  typedef boost::mpl::true_ type;
+};
 template <class SEQ, class TYPE>
 struct contains;
 
@@ -41,6 +49,27 @@ struct unique_cons {
 
   typedef typename contains<S, T>::type S_has_T;
   typedef typename unique_cons_impl<S,T,S_has_T>::type type;
+};
+
+template <class T, class S>
+struct unique_back_cons {
+  template <class SS, class TT, class exists> struct unique_back_cons_impl;
+  template <class SS, class TT>
+  struct unique_back_cons_impl<SS,TT,boost::mpl::true_> {
+    typedef SS type;
+  };
+  template <class HEAD, class TAIL, class TT>
+  struct unique_back_cons_impl<bf::cons<HEAD,TAIL>,TT,boost::mpl::false_> {
+    typedef typename unique_back_cons_impl<TAIL,TT,boost::mpl::false_>::type NewTailT;
+    typedef bf::cons<HEAD,NewTailT> type;
+  };
+  template <class TT>
+  struct unique_back_cons_impl<nil,TT,boost::mpl::false_> {
+    typedef bf::cons<TT> type;
+  };
+
+  typedef typename contains<S, T>::type S_has_T;
+  typedef typename unique_back_cons_impl<S,T,S_has_T>::type type;
 };
 
 } // namespace kanomi

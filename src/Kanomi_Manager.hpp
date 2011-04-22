@@ -21,7 +21,8 @@ struct DoSetup {
         manager(m), plist(p) {}
   template<class T>
   void operator()(T & t) const {
-    t.setup(manager, plist);
+    std::cout << "setup: "<< t.name << std::endl;
+    //t.setup(manager, plist);
   }
   ManagerT & manager;
   Teuchos::RCP<Teuchos::ParameterList> plist;
@@ -30,18 +31,11 @@ struct DoSetup {
 struct DoEvaluate {
   template <class T>
   void operator()(T & t) const {
-    t.evaluate();
+    std::cout << "evaluate: " << t.name << std::endl;
+    //t.evaluate();
   }
 };
 
-template <class A, class B>
-struct is_same {
-  typedef boost::mpl::false_ type;
-};
-template <class A>
-struct is_same<A,A> {
-  typedef boost::mpl::true_ type;
-};
 template <class FIELD>
 struct provides_field {
   template <class IMPL>

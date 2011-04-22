@@ -1,7 +1,5 @@
 #!/bin/sh
 
-GVF=$1
-shift
 DEF_VER=v0.0
 
 LF='
@@ -29,15 +27,4 @@ fi
 
 VN=$(expr "$VN" : v*'\(.*\)')
 
-if test -r $GVF
-then
-	VC=$(sed -e 's/^#define KANOMI_VERSION //' <$GVF | sed -e 's/"//g')
-else
-	VC=unset
-fi
-test "$VN" = "$VC" || {
-	echo >&2 "KANOMI_VERSION = $VN"
-	echo "#define KANOMI_VERSION \"$VN\"" >$GVF
-}
-
-
+echo $VN

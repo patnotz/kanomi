@@ -3,9 +3,10 @@ cmake_minimum_required(VERSION 2.8)
 # Auto-version generation
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
-    COMMAND ${PROJECT_SOURCE_DIR}/version-gen.sh ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
+    COMMAND ${PROJECT_SOURCE_DIR}/create-version-header.sh ${PROJECT_SOURCE_DIR}/version-gen.sh ${CMAKE_CURRENT_BINARY_DIR}
     DEPENDS 
     COMMENT "Generating auto-version header file from Git..."
+    ALL
 )
 
 #

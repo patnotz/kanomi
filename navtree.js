@@ -96,9 +96,6 @@ var NAVTREE =
       [ "kanomi::unique_cons< T, S >::unique_cons_impl< SS, TT, boost::mpl::true_ >", "structkanomi_1_1unique__cons_1_1unique__cons__impl_3_01_s_s_00_01_t_t_00_01boost_1_1mpl_1_1true___01_4.html", null ]
     ] ],
     [ "File List", "files.html", [
-      [ "build/CMakeFiles/CompilerIdC/CMakeCCompilerId.c", null, null ],
-      [ "build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp", null, null ],
-      [ "build/src/Kanomi_autoversion.hpp", null, null ],
       [ "src/Kanomi_Build.hpp", null, null ],
       [ "src/Kanomi_ConstantScalar.hpp", null, null ],
       [ "src/Kanomi_Demangle.cpp", null, null ],
@@ -121,6 +118,9 @@ var NAVTREE =
       [ "src/Kanomi_version.cpp", null, null ],
       [ "src/Kanomi_version.hpp", null, null ],
       [ "src/User_Config.hpp", null, null ]
+    ] ],
+    [ "Directories", "dirs.html", [
+      [ "src", "dir_7045b1aa928a053850d35acdb37c1f1b.html", null ]
     ] ]
   ] ]
 ];

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Kanomi: src/Kanomi_Manager.hpp (0.0.17.g9167) Source File</title>
+<title>Kanomi: src/Kanomi_Manager.hpp (0.0.18.g49f8) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -104,89 +104,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00021"></a>00021         manager(m), plist(p) {}
 <a name="l00022"></a>00022   <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
 <a name="l00023"></a>00023   <span class="keywordtype">void</span> operator()(T &amp; t)<span class="keyword"> const </span>{
-<a name="l00024"></a>00024     t.setup(manager, plist);
-<a name="l00025"></a>00025   }
-<a name="l00026"></a>00026   ManagerT &amp; manager;
-<a name="l00027"></a>00027   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
-<a name="l00028"></a>00028 };
-<a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="structkanomi_1_1_do_evaluate.html">00030</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> {
-<a name="l00031"></a>00031   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00032"></a>00032   <span class="keywordtype">void</span> operator()(T &amp; t)<span class="keyword"> const </span>{
-<a name="l00033"></a>00033     t.evaluate();
-<a name="l00034"></a>00034   }
-<a name="l00035"></a>00035 };
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <span class="keyword">template</span> &lt;<span class="keyword">class</span> A, <span class="keyword">class</span> B&gt;
-<a name="l00038"></a><a class="code" href="structkanomi_1_1is__same.html">00038</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1is__same.html">is_same</a> {
-<a name="l00039"></a>00039   <span class="keyword">typedef</span> boost::mpl::false_ type;
-<a name="l00040"></a>00040 };
-<a name="l00041"></a>00041 <span class="keyword">template</span> &lt;<span class="keyword">class</span> A&gt;
-<a name="l00042"></a><a class="code" href="structkanomi_1_1is__same_3_01_a_00_01_a_01_4.html">00042</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1is__same.html">is_same</a>&lt;<a class="code" href="structkanomi_1_1_a.html">A</a>,<a class="code" href="structkanomi_1_1_a.html">A</a>&gt; {
-<a name="l00043"></a>00043   <span class="keyword">typedef</span> boost::mpl::true_ type;
-<a name="l00044"></a>00044 };
-<a name="l00045"></a>00045 <span class="keyword">template</span> &lt;<span class="keyword">class</span> FIELD&gt;
-<a name="l00046"></a><a class="code" href="structkanomi_1_1provides__field.html">00046</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1provides__field.html">provides_field</a> {
-<a name="l00047"></a>00047   <span class="keyword">template</span> &lt;<span class="keyword">class</span> IMPL&gt;
-<a name="l00048"></a><a class="code" href="structkanomi_1_1provides__field_1_1apply.html">00048</a>   <span class="keyword">struct </span><a class="code" href="structkanomi_1_1provides__field_1_1apply.html">apply</a> {
-<a name="l00049"></a>00049     <span class="keyword">typedef</span> <span class="keyword">typename</span> is_same&lt;typename IMPL::FieldT, FIELD&gt;::type type;
-<a name="l00050"></a>00050   };
-<a name="l00051"></a>00051 };
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="keyword">template</span> &lt;<span class="keyword">class</span> M, <span class="keyword">class</span> FieldT&gt;
-<a name="l00054"></a><a class="code" href="structkanomi_1_1provider__of__field.html">00054</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1provider__of__field.html">provider_of_field</a> {
-<a name="l00055"></a>00055   <span class="keyword">typedef</span> <span class="keyword">typename</span> M::SequenceT S;
-<a name="l00056"></a>00056   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1provides__field.html">provides_field&lt;FieldT&gt;</a> <a class="code" href="structkanomi_1_1provides__field.html">selector</a>;
-<a name="l00057"></a>00057   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::find_if&lt;S, selector &gt;::type I_type;
-<a name="l00058"></a>00058   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::value_of&lt;I_type&gt;::type type;
-<a name="l00059"></a>00059 };
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;
-<a name="l00062"></a><a class="code" href="structkanomi_1_1_manager.html">00062</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_manager.html">Manager</a> {
-<a name="l00063"></a>00063   <span class="keyword">typedef</span> S SequenceT;
-<a name="l00064"></a>00064   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066   <a class="code" href="structkanomi_1_1_manager.html">Manager</a>(Teuchos::RCP&lt;Teuchos::ParameterList&gt; p) :
-<a name="l00067"></a>00067     seq(SequenceT()), plist(p) {}
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069   <span class="keywordtype">void</span> run() {
-<a name="l00070"></a>00070     <a class="code" href="structkanomi_1_1_do_setup.html">DoSetup&lt;ManagerT&gt;</a> do_setup(*<span class="keyword">this</span>,plist);
-<a name="l00071"></a>00071     <a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> do_evaluate;
-<a name="l00072"></a>00072     bf::for_each(seq,do_setup);
-<a name="l00073"></a>00073     bf::for_each(seq,do_evaluate);
+<a name="l00024"></a>00024     std::cout &lt;&lt; <span class="stringliteral">&quot;setup: &quot;</span>&lt;&lt; t.name &lt;&lt; std::endl;
+<a name="l00025"></a>00025     <span class="comment">//t.setup(manager, plist);</span>
+<a name="l00026"></a>00026   }
+<a name="l00027"></a>00027   ManagerT &amp; manager;
+<a name="l00028"></a>00028   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
+<a name="l00029"></a>00029 };
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="structkanomi_1_1_do_evaluate.html">00031</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> {
+<a name="l00032"></a>00032   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00033"></a>00033   <span class="keywordtype">void</span> operator()(T &amp; t)<span class="keyword"> const </span>{
+<a name="l00034"></a>00034     std::cout &lt;&lt; <span class="stringliteral">&quot;evaluate: &quot;</span> &lt;&lt; t.name &lt;&lt; std::endl;
+<a name="l00035"></a>00035     <span class="comment">//t.evaluate();</span>
+<a name="l00036"></a>00036   }
+<a name="l00037"></a>00037 };
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">template</span> &lt;<span class="keyword">class</span> FIELD&gt;
+<a name="l00040"></a><a class="code" href="structkanomi_1_1provides__field.html">00040</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1provides__field.html">provides_field</a> {
+<a name="l00041"></a>00041   <span class="keyword">template</span> &lt;<span class="keyword">class</span> IMPL&gt;
+<a name="l00042"></a><a class="code" href="structkanomi_1_1provides__field_1_1apply.html">00042</a>   <span class="keyword">struct </span><a class="code" href="structkanomi_1_1provides__field_1_1apply.html">apply</a> {
+<a name="l00043"></a>00043     <span class="keyword">typedef</span> <span class="keyword">typename</span> is_same&lt;typename IMPL::FieldT, FIELD&gt;::type type;
+<a name="l00044"></a>00044   };
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="keyword">template</span> &lt;<span class="keyword">class</span> M, <span class="keyword">class</span> FieldT&gt;
+<a name="l00048"></a><a class="code" href="structkanomi_1_1provider__of__field.html">00048</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1provider__of__field.html">provider_of_field</a> {
+<a name="l00049"></a>00049   <span class="keyword">typedef</span> <span class="keyword">typename</span> M::SequenceT S;
+<a name="l00050"></a>00050   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1provides__field.html">provides_field&lt;FieldT&gt;</a> <a class="code" href="structkanomi_1_1provides__field.html">selector</a>;
+<a name="l00051"></a>00051   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::find_if&lt;S, selector &gt;::type I_type;
+<a name="l00052"></a>00052   <span class="keyword">typedef</span> <span class="keyword">typename</span> bf::result_of::value_of&lt;I_type&gt;::type type;
+<a name="l00053"></a>00053 };
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;
+<a name="l00056"></a><a class="code" href="structkanomi_1_1_manager.html">00056</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_manager.html">Manager</a> {
+<a name="l00057"></a>00057   <span class="keyword">typedef</span> S SequenceT;
+<a name="l00058"></a>00058   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060   <a class="code" href="structkanomi_1_1_manager.html">Manager</a>(Teuchos::RCP&lt;Teuchos::ParameterList&gt; p) :
+<a name="l00061"></a>00061     seq(SequenceT()), plist(p) {}
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keywordtype">void</span> run() {
+<a name="l00064"></a>00064     <a class="code" href="structkanomi_1_1_do_setup.html">DoSetup&lt;ManagerT&gt;</a> do_setup(*<span class="keyword">this</span>,plist);
+<a name="l00065"></a>00065     <a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> do_evaluate;
+<a name="l00066"></a>00066     bf::for_each(seq,do_setup);
+<a name="l00067"></a>00067     bf::for_each(seq,do_evaluate);
+<a name="l00068"></a>00068   }
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00071"></a>00071   <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> &amp; <span class="keyword">set</span>(T t) {
+<a name="l00072"></a>00072     *bf::find&lt;T&gt;(seq) = t;
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00074"></a>00074   }
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00077"></a>00077   <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> &amp; <span class="keyword">set</span>(T t) {
-<a name="l00078"></a>00078     *bf::find&lt;T&gt;(seq) = t;
-<a name="l00079"></a>00079     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00080"></a>00080   }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00083"></a>00083   T &amp; <span class="keyword">get</span>() {
-<a name="l00084"></a>00084     <span class="keywordflow">return</span> *bf::find&lt;T&gt;(seq);
-<a name="l00085"></a>00085   }
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087   SequenceT seq;
-<a name="l00088"></a>00088   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
+<a name="l00077"></a>00077   T &amp; <span class="keyword">get</span>() {
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> *bf::find&lt;T&gt;(seq);
+<a name="l00079"></a>00079   }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081   SequenceT seq;
+<a name="l00082"></a>00082   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="keyword">template</span> &lt;<span class="keyword">class</span> ROOTS&gt;
+<a name="l00086"></a><a class="code" href="structkanomi_1_1_build_manager.html">00086</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_build_manager.html">BuildManager</a> {
+<a name="l00087"></a>00087   <span class="keyword">typedef</span> <span class="keyword">typename</span> Build&lt;nil,ROOTS,nil&gt;::SequenceT SequenceT;
+<a name="l00088"></a>00088   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
 <a name="l00089"></a>00089 };
 <a name="l00090"></a>00090 
-<a name="l00091"></a>00091 <span class="keyword">template</span> &lt;<span class="keyword">class</span> ROOTS&gt;
-<a name="l00092"></a><a class="code" href="structkanomi_1_1_build_manager.html">00092</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_build_manager.html">BuildManager</a> {
-<a name="l00093"></a>00093   <span class="keyword">typedef</span> <span class="keyword">typename</span> Build&lt;nil,ROOTS,nil&gt;::SequenceT SequenceT;
-<a name="l00094"></a>00094   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
-<a name="l00095"></a>00095 };
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 } <span class="comment">// namespace kanomi</span>
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_MANAGER_HPP_ */</span>
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 } <span class="comment">// namespace kanomi</span>
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_MANAGER_HPP_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>Kanomi_Manager.hpp</b>      </li>
-      <li class="footer">Generated on Thu Apr 21 2011 20:50:25 for Kanomi by&#160;
+      <li class="footer">Generated on Fri Apr 22 2011 08:23:28 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

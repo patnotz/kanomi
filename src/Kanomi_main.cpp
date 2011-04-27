@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <Kanomi_FieldNames.hpp>
 #include <Kanomi_Manager.hpp>
 #include <Kanomi_Factory.hpp>
@@ -91,6 +92,8 @@ int main(int argc, char * argv[]) {
   typedef typename BuildManager<UserRootsT>::ManagerT ManagerT;
   ManagerT m(plist);
   m.run();
+  std::ofstream os("kanomi.dot");
+  m.dump_graph(os);
 
   //typedef ScalarField<field::TEMPERATURE,model::FIELD_DATA,QUAD_Q4> TempT;
   //typedef typename Factory<field::TEMPERATURE,QUAD_Q4>::ProviderT TempT;

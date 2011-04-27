@@ -51,6 +51,8 @@ SET ( HEADERS
     Kanomi_Manager.hpp
     Kanomi_mpl.hpp
     Kanomi_Named.hpp
+    Kanomi_OutputGraphviz.hpp
+    Kanomi_provider.hpp
     Kanomi_ScalarField.hpp
     Kanomi_ScalarPolynomial.hpp
     Kanomi_Stencils.hpp

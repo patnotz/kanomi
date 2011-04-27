@@ -7,6 +7,8 @@
 #include <Teuchos_ParameterList.hpp>
 #include <Kanomi_TypeInfo.hpp>
 #include <Kanomi_Build.hpp>
+#include <Kanomi_provider.hpp>
+#include <Kanomi_OutputGraphviz.hpp>
 
 namespace bf = boost::fusion;
 
@@ -36,22 +38,6 @@ struct DoEvaluate {
   }
 };
 
-template <class FIELD>
-struct provides_field {
-  template <class IMPL>
-  struct apply {
-    typedef typename is_same<typename IMPL::FieldT, FIELD>::type type;
-  };
-};
-
-template <class M, class FieldT>
-struct provider_of_field {
-  typedef typename M::SequenceT S;
-  typedef provides_field<FieldT> selector;
-  typedef typename bf::result_of::find_if<S, selector >::type I_type;
-  typedef typename bf::result_of::value_of<I_type>::type type;
-};
-
 template <class S>
 struct Manager {
   typedef S SequenceT;
@@ -65,6 +51,15 @@ struct Manager {
     DoEvaluate do_evaluate;
     bf::for_each(seq,do_setup);
     bf::for_each(seq,do_evaluate);
+  }
+
+  void dump_graph(std::ostream & os) {
+    os  << "digraph kanomi {" << std::endl
+        << "  labelloc = top;" << std::endl
+        << "  fontsize = 14;" << std::endl;
+    OutputGraphviz<ManagerT> output_graphviz(os);
+    bf::for_each(seq,output_graphviz);
+    os  << "}" << std::endl;
   }
 
   template <class T>

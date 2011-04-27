@@ -2,21 +2,16 @@ var NAVTREE =
 [
   [ "Kanomi", "index.html", [
     [ "Class List", "annotated.html", [
-      [ "kanomi::A", "structkanomi_1_1_a.html", null ],
-      [ "kanomi::enabled_pred< FIELD >::apply< IMPL >", "structkanomi_1_1enabled__pred_1_1apply.html", null ],
       [ "kanomi::provides_field< FIELD >::apply< IMPL >", "structkanomi_1_1provides__field_1_1apply.html", null ],
-      [ "kanomi::B", "structkanomi_1_1_b.html", null ],
-      [ "kanomi::Base", "structkanomi_1_1_base.html", null ],
+      [ "kanomi::enabled_pred< FIELD >::apply< IMPL >", "structkanomi_1_1enabled__pred_1_1apply.html", null ],
       [ "kanomi::Build< S, bf::cons< RH, RT >, nil >", "structkanomi_1_1_build_3_01_s_00_01bf_1_1cons_3_01_r_h_00_01_r_t_01_4_00_01nil_01_4.html", null ],
       [ "kanomi::Build< S, nil, nil >", "structkanomi_1_1_build_3_01_s_00_01nil_00_01nil_01_4.html", null ],
       [ "kanomi::Build< S, R, bf::cons< PH, PT > >", "structkanomi_1_1_build_3_01_s_00_01_r_00_01bf_1_1cons_3_01_p_h_00_01_p_t_01_4_01_4.html", null ],
       [ "kanomi::BuildManager< ROOTS >", "structkanomi_1_1_build_manager.html", null ],
-      [ "kanomi::C", "structkanomi_1_1_c.html", null ],
       [ "kanomi::ConstantScalar< FIELD, MODEL, STENCIL >", "structkanomi_1_1_constant_scalar.html", null ],
       [ "kanomi::contains< bf::cons< HEAD, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_h_e_a_d_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
       [ "kanomi::contains< bf::cons< TYPE, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_t_y_p_e_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
       [ "kanomi::contains< bf::nil, TYPE >", "structkanomi_1_1contains_3_01bf_1_1nil_00_01_t_y_p_e_01_4.html", null ],
-      [ "kanomi::D", "structkanomi_1_1_d.html", null ],
       [ "kanomi::DoEvaluate", "structkanomi_1_1_do_evaluate.html", null ],
       [ "kanomi::DoSetup< M >", "structkanomi_1_1_do_setup.html", null ],
       [ "kanomi::enabled< FIELD, MODEL >", "structkanomi_1_1enabled.html", null ],
@@ -63,12 +58,6 @@ var NAVTREE =
     [ "Class Index", "classes.html", null ],
     [ "Class Hierarchy", "hierarchy.html", [
       [ "kanomi::provides_field< FIELD >::apply< IMPL >", "structkanomi_1_1provides__field_1_1apply.html", null ],
-      [ "kanomi::Base", "structkanomi_1_1_base.html", [
-        [ "kanomi::A", "structkanomi_1_1_a.html", null ],
-        [ "kanomi::B", "structkanomi_1_1_b.html", null ],
-        [ "kanomi::C", "structkanomi_1_1_c.html", null ],
-        [ "kanomi::D", "structkanomi_1_1_d.html", null ]
-      ] ],
       [ "kanomi::Build< S, bf::cons< RH, RT >, nil >", "structkanomi_1_1_build_3_01_s_00_01bf_1_1cons_3_01_r_h_00_01_r_t_01_4_00_01nil_01_4.html", null ],
       [ "kanomi::Build< S, nil, nil >", "structkanomi_1_1_build_3_01_s_00_01nil_00_01nil_01_4.html", null ],
       [ "kanomi::Build< S, R, bf::cons< PH, PT > >", "structkanomi_1_1_build_3_01_s_00_01_r_00_01bf_1_1cons_3_01_p_h_00_01_p_t_01_4_01_4.html", null ],

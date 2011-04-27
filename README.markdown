@@ -26,7 +26,7 @@ various multicore architecutres.
 1. Copy and tailor your CMake script
     <pre><code>
     $ cp ../doc/do-cmake
-    $ emacs do-cmake # set your trilinos installation location
+    $ emacs do-cmake # set your Trilinos installation location
     </code></pre>
 1. Build
     <pre><code>
@@ -39,11 +39,11 @@ various multicore architecutres.
     </code></pre>
 
 ## TODO
+ - Improve file organization
  - Need central memory manager and getters
- - `User_Config.hpp` needs to define root-level dependencies
+ - replace bf::pair<FieldT,StencilT> with a tag type
  - Better compilation errors for missing Factory<FieldT,StencilT> 
  - Switch from `fusion::list<>` to `fusion::cons<>`?
- - Need a strategy for dependencies
  - Populate stencil classes with real quadrature points
  - Choose an array class (`Kokkos::MDArray` ?)
  - Evaluate manager in a Kokkos Node (`parallel_for`)
@@ -51,7 +51,6 @@ various multicore architecutres.
  - Doxygen and github-pages
    * main page content
    * copy of source code?
-   * version identifier
 
 [Trilinos]: http://trilinos.sandia.gov/
 [Phalanx]: http://trilinos.sandia.gov/packages/phalanx/

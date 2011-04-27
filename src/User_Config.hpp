@@ -4,6 +4,7 @@
 #include <Kanomi_FieldNames.hpp>
 #include <Kanomi_ModelNames.hpp>
 #include <Kanomi_Factory.hpp>
+#include <Kanomi_ModelProvider.hpp>
 
 // Example user "input file" used to select components at compile time
 

@@ -5,6 +5,7 @@
 #include <Kanomi_FieldNames.hpp>
 #include <Kanomi_ConstantScalar.hpp>
 #include <Kanomi_ScalarField.hpp>
+#include <Kanomi_ModelProvider.hpp>
 #include <Kanomi_ScalarPolynomial.hpp>
 #include <boost/fusion/container.hpp>
 

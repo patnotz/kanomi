@@ -26,7 +26,14 @@ private:
   };
   std::ostream & ostream;
 public:
-  OutputGraphviz(std::ostream & os) : ostream(os) {}
+  OutputGraphviz(std::ostream & os) : ostream(os) {
+    ostream << "digraph kanomi {" << std::endl
+        << "  labelloc = top;" << std::endl
+        << "  fontsize = 14;" << std::endl;
+  }
+  ~OutputGraphviz() {
+    ostream << "}" << std::endl;
+  }
   template<class T>
   void operator()(T & t) const {
     typedef typename T::FieldT FieldT;

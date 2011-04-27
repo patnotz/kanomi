@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <Teuchos_ParameterList.hpp>
-#include <Kanomi_Manager.hpp>
+#include <Kanomi_BuildManager.hpp>
 #include <Kanomi_version.hpp>
 #include <User_Config.hpp>
 

@@ -38,9 +38,11 @@ SET ( SOURCES
 SET ( HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
     Kanomi_BasisFunction.hpp
-    Kanomi_Build.hpp
+    Kanomi_BuildManager.hpp
     Kanomi_ConstantScalar.hpp
     Kanomi_Demangle.hpp
+    Kanomi_DoSetup.hpp
+    Kanomi_DoEvaluate.hpp
     Kanomi_EnergyResidual.hpp
     Kanomi_EQ.hpp
     Kanomi_EQ_Energy.hpp
@@ -49,6 +51,7 @@ SET ( HEADERS
     Kanomi_FieldNames.hpp
     Kanomi_GradScalarField.hpp
     Kanomi_Manager.hpp
+    Kanomi_ModelProvider.hpp
     Kanomi_mpl.hpp
     Kanomi_Named.hpp
     Kanomi_OutputGraphviz.hpp

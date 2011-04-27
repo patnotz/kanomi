@@ -1,6 +1,7 @@
 #ifndef KANOMI_BASISFUNCTION_HPP_
 #define KANOMI_BASISFUNCTION_HPP_
 
+#include <Kanomi_ScalarField.hpp>
 #include <Kanomi_Factory.hpp>
 #include <Kanomi_FieldNames.hpp>
 #include <Kanomi_ModelNames.hpp>

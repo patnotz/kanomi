@@ -1,6 +1,7 @@
 #ifndef KANOMI_EQ_HPP_
 #define KANOMI_EQ_HPP_
 
+#include <Kanomi_ScalarField.hpp>
 #include <Kanomi_ModelNames.hpp>
 
 namespace kanomi {

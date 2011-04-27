@@ -1,8 +1,9 @@
 #ifndef USER_CONFIG_HPP_
 #define USER_CONFIG_HPP_
 
+#include <Kanomi_FieldNames.hpp>
+#include <Kanomi_ModelNames.hpp>
 #include <Kanomi_Factory.hpp>
-#include <Kanomi_Build.hpp>
 
 // Example user "input file" used to select components at compile time
 

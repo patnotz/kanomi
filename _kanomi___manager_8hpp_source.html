@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Kanomi: src/Kanomi_Manager.hpp (0.0.21.gd6f4) Source File</title>
+<title>Kanomi: src/Kanomi_Manager.hpp (0.0.25.gdd39) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -86,96 +86,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;boost/fusion/algorithm.hpp&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;boost/fusion/container.hpp&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;boost/fusion/sequence.hpp&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;Teuchos_ParameterList.hpp&gt;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;Kanomi_TypeInfo.hpp&gt;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;Kanomi_Build.hpp&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;Kanomi_provider.hpp&gt;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;Kanomi_OutputGraphviz.hpp&gt;</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="keyword">namespace </span>bf = boost::fusion;
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;Teuchos_ParameterList.hpp&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;Kanomi_mpl.hpp&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;Kanomi_DoSetup.hpp&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;Kanomi_DoEvaluate.hpp&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;Kanomi_Factory.hpp&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;Kanomi_provider.hpp&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;Kanomi_OutputGraphviz.hpp&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;Kanomi_TypeInfo.hpp&gt;</span>
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <span class="keyword">namespace </span>kanomi {
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>bf = boost::fusion;
 <a name="l00016"></a>00016 
-<a name="l00017"></a>00017 <span class="keyword">template</span> &lt;<span class="keyword">class</span> M&gt;
-<a name="l00018"></a><a class="code" href="structkanomi_1_1_do_setup.html">00018</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_do_setup.html">DoSetup</a> {
-<a name="l00019"></a>00019   <span class="keyword">typedef</span> M ManagerT;
-<a name="l00020"></a>00020   <a class="code" href="structkanomi_1_1_do_setup.html">DoSetup</a>(
-<a name="l00021"></a>00021       ManagerT &amp; m,
-<a name="l00022"></a>00022       Teuchos::RCP&lt;Teuchos::ParameterList&gt; p) :
-<a name="l00023"></a>00023         manager(m), plist(p) {}
-<a name="l00024"></a>00024   <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
-<a name="l00025"></a>00025   <span class="keywordtype">void</span> operator()(T &amp; t)<span class="keyword"> const </span>{
-<a name="l00026"></a>00026     std::cout &lt;&lt; <span class="stringliteral">&quot;setup: &quot;</span>&lt;&lt; t.name &lt;&lt; std::endl;
-<a name="l00027"></a>00027     <span class="comment">//t.setup(manager, plist);</span>
-<a name="l00028"></a>00028   }
-<a name="l00029"></a>00029   ManagerT &amp; manager;
-<a name="l00030"></a>00030   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
-<a name="l00031"></a>00031 };
-<a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="structkanomi_1_1_do_evaluate.html">00033</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> {
-<a name="l00034"></a>00034   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00035"></a>00035   <span class="keywordtype">void</span> operator()(T &amp; t)<span class="keyword"> const </span>{
-<a name="l00036"></a>00036     std::cout &lt;&lt; <span class="stringliteral">&quot;evaluate: &quot;</span> &lt;&lt; t.name &lt;&lt; std::endl;
-<a name="l00037"></a>00037     <span class="comment">//t.evaluate();</span>
-<a name="l00038"></a>00038   }
-<a name="l00039"></a>00039 };
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;
-<a name="l00042"></a><a class="code" href="structkanomi_1_1_manager.html">00042</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_manager.html">Manager</a> {
-<a name="l00043"></a>00043   <span class="keyword">typedef</span> S SequenceT;
-<a name="l00044"></a>00044   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046   <a class="code" href="structkanomi_1_1_manager.html">Manager</a>(Teuchos::RCP&lt;Teuchos::ParameterList&gt; p) :
-<a name="l00047"></a>00047     seq(SequenceT()), plist(p) {}
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049   <span class="keywordtype">void</span> run() {
-<a name="l00050"></a>00050     <a class="code" href="structkanomi_1_1_do_setup.html">DoSetup&lt;ManagerT&gt;</a> do_setup(*<span class="keyword">this</span>,plist);
-<a name="l00051"></a>00051     <a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> do_evaluate;
-<a name="l00052"></a>00052     bf::for_each(seq,do_setup);
-<a name="l00053"></a>00053     bf::for_each(seq,do_evaluate);
-<a name="l00054"></a>00054   }
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>kanomi {
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;
+<a name="l00020"></a><a class="code" href="structkanomi_1_1_manager.html">00020</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_manager.html">Manager</a> {
+<a name="l00021"></a>00021   <span class="keyword">typedef</span> S SequenceT;
+<a name="l00022"></a>00022   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024   <a class="code" href="structkanomi_1_1_manager.html">Manager</a>(Teuchos::RCP&lt;Teuchos::ParameterList&gt; p) :
+<a name="l00025"></a>00025     seq(SequenceT()), plist(p) {}
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027   <span class="keywordtype">void</span> run() {
+<a name="l00028"></a>00028     <a class="code" href="structkanomi_1_1_do_setup.html">DoSetup&lt;ManagerT&gt;</a> do_setup(*<span class="keyword">this</span>,plist);
+<a name="l00029"></a>00029     <a class="code" href="structkanomi_1_1_do_evaluate.html">DoEvaluate</a> do_evaluate;
+<a name="l00030"></a>00030     bf::for_each(seq,do_setup);
+<a name="l00031"></a>00031     bf::for_each(seq,do_evaluate);
+<a name="l00032"></a>00032   }
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034   <span class="keywordtype">void</span> dump_graph(std::ostream &amp; os) {
+<a name="l00035"></a>00035     <a class="code" href="structkanomi_1_1_output_graphviz.html">OutputGraphviz&lt;ManagerT&gt;</a> output_graphviz(os);
+<a name="l00036"></a>00036     bf::for_each(seq,output_graphviz);
+<a name="l00037"></a>00037   }
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039   <span class="keyword">template</span> &lt;<span class="keyword">class</span> IMPL&gt;
+<a name="l00040"></a>00040   IMPL &amp; <span class="keyword">get</span>() {
+<a name="l00041"></a>00041     <span class="keywordflow">return</span> *bf::find&lt;IMPL&gt;(seq);
+<a name="l00042"></a>00042   }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044   <span class="keyword">template</span> &lt;<span class="keyword">class</span> FIELD&gt;
+<a name="l00045"></a>00045   ScalarT * get_values() {
+<a name="l00046"></a>00046     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;ManagerT,FIELD&gt;::type ImplT;
+<a name="l00047"></a>00047     <span class="keywordflow">return</span> *bf::find&lt;ImplT&gt;(seq).values;
+<a name="l00048"></a>00048   }
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050   SequenceT seq;
+<a name="l00051"></a>00051   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
+<a name="l00052"></a>00052 };
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 } <span class="comment">// namespace kanomi</span>
 <a name="l00055"></a>00055 
-<a name="l00056"></a>00056   <span class="keywordtype">void</span> dump_graph(std::ostream &amp; os) {
-<a name="l00057"></a>00057     os  &lt;&lt; <span class="stringliteral">&quot;digraph kanomi {&quot;</span> &lt;&lt; std::endl
-<a name="l00058"></a>00058         &lt;&lt; <span class="stringliteral">&quot;  labelloc = top;&quot;</span> &lt;&lt; std::endl
-<a name="l00059"></a>00059         &lt;&lt; <span class="stringliteral">&quot;  fontsize = 14;&quot;</span> &lt;&lt; std::endl;
-<a name="l00060"></a>00060     <a class="code" href="structkanomi_1_1_output_graphviz.html">OutputGraphviz&lt;ManagerT&gt;</a> output_graphviz(os);
-<a name="l00061"></a>00061     bf::for_each(seq,output_graphviz);
-<a name="l00062"></a>00062     os  &lt;&lt; <span class="stringliteral">&quot;}&quot;</span> &lt;&lt; std::endl;
-<a name="l00063"></a>00063   }
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00066"></a>00066   <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> &amp; <span class="keyword">set</span>(T t) {
-<a name="l00067"></a>00067     *bf::find&lt;T&gt;(seq) = t;
-<a name="l00068"></a>00068     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00069"></a>00069   }
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071   <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00072"></a>00072   T &amp; <span class="keyword">get</span>() {
-<a name="l00073"></a>00073     <span class="keywordflow">return</span> *bf::find&lt;T&gt;(seq);
-<a name="l00074"></a>00074   }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076   SequenceT seq;
-<a name="l00077"></a>00077   Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist;
-<a name="l00078"></a>00078 };
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 <span class="keyword">template</span> &lt;<span class="keyword">class</span> ROOTS&gt;
-<a name="l00081"></a><a class="code" href="structkanomi_1_1_build_manager.html">00081</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_build_manager.html">BuildManager</a> {
-<a name="l00082"></a>00082   <span class="keyword">typedef</span> <span class="keyword">typename</span> Build&lt;nil,ROOTS,nil&gt;::SequenceT SequenceT;
-<a name="l00083"></a>00083   <span class="keyword">typedef</span> <a class="code" href="structkanomi_1_1_manager.html">Manager&lt;SequenceT&gt;</a> <a class="code" href="structkanomi_1_1_manager.html">ManagerT</a>;
-<a name="l00084"></a>00084 };
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087 } <span class="comment">// namespace kanomi</span>
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_MANAGER_HPP_ */</span>
+<a name="l00056"></a>00056 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_MANAGER_HPP_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>Kanomi_Manager.hpp</b>      </li>
-      <li class="footer">Generated on Wed Apr 27 2011 09:35:58 for Kanomi by&#160;
+      <li class="footer">Generated on Wed Apr 27 2011 21:10:33 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$structkanomi_1_1enabled.html" title="{kanomi::enabled\&lt; FIELD, IMPL::ModelT \&gt;\n|+ value\l|}" alt="" coords="24,153,299,234"/>
-<area shape="rect" id="node5" href="$structkanomi_1_1enabled__pred_1_1apply.html" title="{kanomi::enabled_pred\&lt; FIELD \&gt;::apply\&lt; IMPL \&gt;\n||}" alt="" coords="5,286,317,367"/>
+<area shape="rect" id="node3" href="$structkanomi_1_1enabled.html" title="{kanomi::enabled\&lt; FIELD, IMPL::ModelT \&gt;\n|+ value\l|}" alt="" coords="105,153,380,234"/>
+<area shape="rect" id="node5" href="$structkanomi_1_1_model_provider_1_1enabled__pred_1_1apply.html" title="{kanomi::ModelProvider\&lt; MODELS, FIELD \&gt;::enabled_pred::apply\&lt; IMPL \&gt;\n||}" alt="" coords="5,286,480,367"/>
 </map>

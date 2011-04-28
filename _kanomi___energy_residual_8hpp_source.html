@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Kanomi: src/Kanomi_EnergyResidual.hpp (0.0.21.gd6f4) Source File</title>
+<title>Kanomi: src/Kanomi_EnergyResidual.hpp (0.0.25.gdd39) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -86,81 +86,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;Kanomi_FieldNames.hpp&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;Kanomi_mpl.hpp&gt;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="keyword">namespace </span>kanomi {
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="keyword">template</span> &lt;<span class="keyword">class</span> STENCIL&gt;
-<a name="l00010"></a><a class="code" href="structkanomi_1_1_energy_residual.html">00010</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_energy_residual.html">EnergyResidual</a> {
-<a name="l00011"></a>00011   <span class="keyword">typedef</span> field::ENERGY_RESIDUAL FieldT;
-<a name="l00012"></a>00012   <span class="keyword">typedef</span> STENCIL StencilT;
-<a name="l00013"></a>00013   <span class="keyword">typedef</span> <span class="keyword">typename</span> StencilT::TopologyT TopologyT;
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015   <span class="keyword">typedef</span> field::THERMAL_CONDUCTIVITY ThermalCondT;
-<a name="l00016"></a>00016   <span class="keyword">typedef</span> field::GRAD_TEMPERATURE GradTempT;
-<a name="l00017"></a>00017   <span class="keyword">typedef</span> field::GRAD_BASIS_FUNCTION GradBasisFunctionT;
-<a name="l00018"></a>00018   <span class="keyword">typedef</span> field::QUADRATURE_WEIGHTS QuadWeightT;
-<a name="l00019"></a>00019   <span class="keyword">typedef</span> field::DETJ DetjT;
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021   <span class="keyword">typedef</span>
-<a name="l00022"></a>00022       bf::cons&lt; bf::pair&lt;ThermalCondT,StencilT&gt;,
-<a name="l00023"></a>00023       bf::cons&lt; bf::pair&lt;GradTempT,StencilT&gt;,
-<a name="l00024"></a>00024       bf::cons&lt; bf::pair&lt;GradBasisFunctionT,StencilT&gt;,
-<a name="l00025"></a>00025       bf::cons&lt; bf::pair&lt;QuadWeightT,StencilT&gt;,
-<a name="l00026"></a>00026       bf::cons&lt; bf::pair&lt;DetjT,StencilT&gt; &gt; &gt; &gt; &gt; &gt; PrereqsT;
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028   <a class="code" href="structkanomi_1_1_energy_residual.html">EnergyResidual</a>() : name(FieldT::name()) {
-<a name="l00029"></a>00029     <span class="keyword">const</span> ScalarT zero(0);
-<a name="l00030"></a>00030     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_nodes; ++i)
-<a name="l00031"></a>00031       values[i] = zero;
-<a name="l00032"></a>00032   }
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034   <span class="keyword">template</span> &lt;<span class="keyword">class</span> M&gt;
-<a name="l00035"></a>00035   <span class="keywordtype">void</span> setup(M &amp; m, Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist) {
-<a name="l00036"></a>00036     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,ThermalCondT&gt;::type ThermCondPT;
-<a name="l00037"></a>00037     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,GradTempT&gt;::type GradTempPT;
-<a name="l00038"></a>00038     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,GradBasisFunctionT&gt;::type GradBasisFunctionPT;
-<a name="l00039"></a>00039     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,QuadWeightT&gt;::type QuadWeightPT;
-<a name="l00040"></a>00040     <span class="keyword">typedef</span> <span class="keyword">typename</span> provider_of_field&lt;M,DetjT&gt;::type DetjPT;
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     thermCond = m.template get&lt;ThermCondPT&gt;().values;
-<a name="l00043"></a>00043     gradTemp = m.template get&lt;GradTempPT&gt;().values;
-<a name="l00044"></a>00044     gradBasisFunction = m.template get&lt;GradBasisFunctionPT&gt;().values;
-<a name="l00045"></a>00045     quadWeight = m.template get&lt;QuadWeightPT&gt;().values;
-<a name="l00046"></a>00046     detj = m.template get&lt;DetjPT&gt;().values;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_nodes; ++i) {
-<a name="l00049"></a>00049       values[i] = 3.14159;
-<a name="l00050"></a>00050     }
-<a name="l00051"></a>00051     std::cout &lt;&lt; <span class="stringliteral">&quot;setup &quot;</span> &lt;&lt; name &lt;&lt; std::endl;
-<a name="l00052"></a>00052   }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054   <span class="keywordtype">void</span> evaluate() {
-<a name="l00055"></a>00055     std::cout &lt;&lt; <span class="stringliteral">&quot;Hello from &quot;</span> &lt;&lt; name
-<a name="l00056"></a>00056         &lt;&lt; <span class="stringliteral">&quot; with value = &quot;</span> &lt;&lt; values[0]
-<a name="l00057"></a>00057         &lt;&lt; <span class="stringliteral">&quot; x &quot;</span> &lt;&lt; num_nodes
-<a name="l00058"></a>00058         &lt;&lt; std::endl;
-<a name="l00059"></a>00059   }
-<a name="l00060"></a>00060   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_nodes = TopologyT::num_nodes;
-<a name="l00061"></a>00061   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_points = StencilT::num_points;
-<a name="l00062"></a>00062   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> spatial_dimension = StencilT::spatial_dimension;
-<a name="l00063"></a>00063   ScalarT values[num_nodes];
-<a name="l00064"></a>00064   ScalarT * thermCond;
-<a name="l00065"></a>00065   ScalarT * gradTemp;
-<a name="l00066"></a>00066   ScalarT * gradBasisFunction;
-<a name="l00067"></a>00067   ScalarT * quadWeight;
-<a name="l00068"></a>00068   ScalarT * detj;
-<a name="l00069"></a>00069   std::string name;
-<a name="l00070"></a>00070 };
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 } <span class="comment">// namespace kanomi</span>
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_ENERGYRESIDUAL_HPP_ */</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;Kanomi_Tag.hpp&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">namespace </span>kanomi {
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">template</span> &lt;<span class="keyword">class</span> STENCIL&gt;
+<a name="l00011"></a><a class="code" href="structkanomi_1_1_energy_residual.html">00011</a> <span class="keyword">struct </span><a class="code" href="structkanomi_1_1_energy_residual.html">EnergyResidual</a> {
+<a name="l00012"></a>00012   <span class="keyword">typedef</span> field::ENERGY_RESIDUAL FieldT;
+<a name="l00013"></a>00013   <span class="keyword">typedef</span> STENCIL StencilT;
+<a name="l00014"></a>00014   <span class="keyword">typedef</span> <span class="keyword">typename</span> StencilT::TopologyT TopologyT;
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016   <span class="keyword">typedef</span> field::THERMAL_CONDUCTIVITY ThermalCondT;
+<a name="l00017"></a>00017   <span class="keyword">typedef</span> field::GRAD_TEMPERATURE GradTempT;
+<a name="l00018"></a>00018   <span class="keyword">typedef</span> field::GRAD_BASIS_FUNCTION GradBasisFunctionT;
+<a name="l00019"></a>00019   <span class="keyword">typedef</span> field::QUADRATURE_WEIGHTS QuadWeightT;
+<a name="l00020"></a>00020   <span class="keyword">typedef</span> field::DETJ DetjT;
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022   <span class="keyword">typedef</span>
+<a name="l00023"></a>00023       bf::cons&lt; Tag&lt;ThermalCondT,StencilT&gt;,
+<a name="l00024"></a>00024       bf::cons&lt; Tag&lt;GradTempT,StencilT&gt;,
+<a name="l00025"></a>00025       bf::cons&lt; Tag&lt;GradBasisFunctionT,StencilT&gt;,
+<a name="l00026"></a>00026       bf::cons&lt; Tag&lt;QuadWeightT,StencilT&gt;,
+<a name="l00027"></a>00027       bf::cons&lt; Tag&lt;DetjT,StencilT&gt; &gt; &gt; &gt; &gt; &gt; PrereqsT;
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029   <a class="code" href="structkanomi_1_1_energy_residual.html">EnergyResidual</a>() : name(FieldT::name()) {
+<a name="l00030"></a>00030     <span class="keyword">const</span> ScalarT zero(0);
+<a name="l00031"></a>00031     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_nodes; ++i)
+<a name="l00032"></a>00032       values[i] = zero;
+<a name="l00033"></a>00033   }
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035   <span class="keyword">template</span> &lt;<span class="keyword">class</span> M&gt;
+<a name="l00036"></a>00036   <span class="keywordtype">void</span> setup(M &amp; m, Teuchos::RCP&lt;Teuchos::ParameterList&gt; plist) {
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038     thermCond = m.template get_values&lt;ThermalCondT&gt;();
+<a name="l00039"></a>00039     gradTemp = m.template get_values&lt;GradTempT&gt;();
+<a name="l00040"></a>00040     gradBasisFunction = m.template get_values&lt;GradBasisFunctionT&gt;();
+<a name="l00041"></a>00041     quadWeight = m.template get_values&lt;QuadWeightT&gt;();
+<a name="l00042"></a>00042     detj = m.template get_values&lt;DetjT&gt;();
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_nodes; ++i) {
+<a name="l00045"></a>00045       values[i] = 3.14159;
+<a name="l00046"></a>00046     }
+<a name="l00047"></a>00047     std::cout &lt;&lt; <span class="stringliteral">&quot;setup &quot;</span> &lt;&lt; name &lt;&lt; std::endl;
+<a name="l00048"></a>00048   }
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050   <span class="keywordtype">void</span> evaluate() {
+<a name="l00051"></a>00051     std::cout &lt;&lt; <span class="stringliteral">&quot;Hello from &quot;</span> &lt;&lt; name
+<a name="l00052"></a>00052         &lt;&lt; <span class="stringliteral">&quot; with value = &quot;</span> &lt;&lt; values[0]
+<a name="l00053"></a>00053         &lt;&lt; <span class="stringliteral">&quot; x &quot;</span> &lt;&lt; num_nodes
+<a name="l00054"></a>00054         &lt;&lt; std::endl;
+<a name="l00055"></a>00055   }
+<a name="l00056"></a>00056   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_nodes = TopologyT::num_nodes;
+<a name="l00057"></a>00057   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> num_points = StencilT::num_points;
+<a name="l00058"></a>00058   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> spatial_dimension = StencilT::spatial_dimension;
+<a name="l00059"></a>00059   ScalarT values[num_nodes];
+<a name="l00060"></a>00060   ScalarT * thermCond;
+<a name="l00061"></a>00061   ScalarT * gradTemp;
+<a name="l00062"></a>00062   ScalarT * gradBasisFunction;
+<a name="l00063"></a>00063   ScalarT * quadWeight;
+<a name="l00064"></a>00064   ScalarT * detj;
+<a name="l00065"></a>00065   std::string name;
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 } <span class="comment">// namespace kanomi</span>
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="preprocessor">#endif </span><span class="comment">/* KANOMI_ENERGYRESIDUAL_HPP_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><b>Kanomi_EnergyResidual.hpp</b>      </li>
-      <li class="footer">Generated on Wed Apr 27 2011 09:35:58 for Kanomi by&#160;
+      <li class="footer">Generated on Wed Apr 27 2011 21:10:33 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

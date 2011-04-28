@@ -116,17 +116,15 @@ typedef field::GRAD_BASIS_FUNCTION&#160;</td><td class="memItemRight" valign="bo
 typedef field::QUADRATURE_WEIGHTS&#160;</td><td class="memItemRight" valign="bottom"><b>QuadWeightT</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4f5835a9d063af8c5b85e41e6a7e3a7"></a><!-- doxytag: member="kanomi::EnergyResidual::DetjT" ref="ab4f5835a9d063af8c5b85e41e6a7e3a7" args="" -->
 typedef field::DETJ&#160;</td><td class="memItemRight" valign="bottom"><b>DetjT</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37e6c92d081e6cd9ea30b65cc6b32a3d"></a><!-- doxytag: member="kanomi::EnergyResidual::PrereqsT" ref="a37e6c92d081e6cd9ea30b65cc6b32a3d" args="" -->
-typedef bf::cons&lt; bf::pair<br class="typebreak"/>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f04208607fd854890616d0a04e24f8e"></a><!-- doxytag: member="kanomi::EnergyResidual::PrereqsT" ref="a9f04208607fd854890616d0a04e24f8e" args="" -->
+typedef bf::cons&lt; <a class="el" href="structkanomi_1_1_tag.html">Tag</a><br class="typebreak"/>
 &lt; ThermalCondT, StencilT &gt;<br class="typebreak"/>
-, bf::cons&lt; bf::pair<br class="typebreak"/>
-&lt; GradTempT, StencilT &gt;<br class="typebreak"/>
-, bf::cons&lt; bf::pair<br class="typebreak"/>
+, bf::cons&lt; <a class="el" href="structkanomi_1_1_tag.html">Tag</a>&lt; GradTempT, <br class="typebreak"/>
+StencilT &gt;, bf::cons&lt; <a class="el" href="structkanomi_1_1_tag.html">Tag</a><br class="typebreak"/>
 &lt; GradBasisFunctionT, StencilT &gt;<br class="typebreak"/>
-, bf::cons&lt; bf::pair<br class="typebreak"/>
-&lt; QuadWeightT, StencilT &gt;<br class="typebreak"/>
-, bf::cons&lt; bf::pair&lt; DetjT, <br class="typebreak"/>
-StencilT &gt; &gt; &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PrereqsT</b></td></tr>
+, bf::cons&lt; <a class="el" href="structkanomi_1_1_tag.html">Tag</a>&lt; QuadWeightT, <br class="typebreak"/>
+StencilT &gt;, bf::cons&lt; <a class="el" href="structkanomi_1_1_tag.html">Tag</a><br class="typebreak"/>
+&lt; DetjT, StencilT &gt; &gt; &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PrereqsT</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2"><a class="anchor" id="afb9468464d72a1e322817463f75e54d4"></a><!-- doxytag: member="kanomi::EnergyResidual::setup" ref="afb9468464d72a1e322817463f75e54d4" args="(M &amp;m, Teuchos::RCP&lt; Teuchos::ParameterList &gt; plist)" -->
@@ -164,9 +162,9 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>spatial_d
  struct kanomi::EnergyResidual&lt; STENCIL &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="_kanomi___energy_residual_8hpp_source.html#l00010">10</a> of file <a class="el" href="_kanomi___energy_residual_8hpp_source.html">Kanomi_EnergyResidual.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_kanomi___energy_residual_8hpp_source.html#l00011">11</a> of file <a class="el" href="_kanomi___energy_residual_8hpp_source.html">Kanomi_EnergyResidual.hpp</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="_kanomi___energy_residual_8hpp_source.html">Kanomi_EnergyResidual.hpp (0.0.21.gd6f4)</a></li>
+<li>src/<a class="el" href="_kanomi___energy_residual_8hpp_source.html">Kanomi_EnergyResidual.hpp (0.0.25.gdd39)</a></li>
 </ul>
 </div>
 </div>
@@ -174,7 +172,7 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>spatial_d
     <ul>
       <li class="navelem"><b>kanomi</b>      </li>
       <li class="navelem"><a class="el" href="structkanomi_1_1_energy_residual.html">EnergyResidual</a>      </li>
-      <li class="footer">Generated on Wed Apr 27 2011 09:35:58 for Kanomi by&#160;
+      <li class="footer">Generated on Wed Apr 27 2011 21:10:34 for Kanomi by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

@@ -1,11 +1,12 @@
 #ifndef KANOMI_GRADSCALARFIELD_HPP_
 #define KANOMI_GRADSCALARFIELD_HPP_
 
+#include <string>
+#include <Teuchos_ParameterList.hpp>
 #include <Kanomi_ModelNames.hpp>
 #include <Kanomi_Named.hpp>
 #include <Kanomi_Stencils.hpp>
-#include <string>
-#include <Teuchos_ParameterList.hpp>
+#include <Kanomi_Tag.hpp>
 
 namespace kanomi {
 
@@ -16,7 +17,7 @@ struct GradScalarField {
   typedef MODEL ModelT;
   typedef STENCIL StencilT;
 
-  typedef bf::cons< bf::pair<CoeffsT,StencilT> > PrereqsT;
+  typedef bf::cons< Tag<CoeffsT,StencilT> > PrereqsT;
 
   GradScalarField() : name(FieldT::name() + " (" + ModelT::name() + ")") {
     const ScalarT zero(0);

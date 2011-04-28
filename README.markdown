@@ -41,7 +41,6 @@ various multicore architecutres.
 ## TODO
  - Improve file organization
  - Need central memory manager and getters
- - replace bf::pair<FieldT,StencilT> with a tag type
  - Better compilation errors for missing Factory<FieldT,StencilT> 
  - Switch from `fusion::list<>` to `fusion::cons<>`?
  - Populate stencil classes with real quadrature points

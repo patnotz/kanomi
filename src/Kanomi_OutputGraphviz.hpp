@@ -2,6 +2,7 @@
 #define KANOMI_OUTPUTGRAPHVIZ_HPP_
 
 #include <iosfwd>
+#include <Kanomi_Tag.hpp>
 
 namespace bf = boost::fusion;
 
@@ -14,7 +15,7 @@ private:
   template <class MANAGER, class FROM, class PREREQ_LIST>
   struct OutputGraphvizEdge;
   template <class MANAGER, class FROM, class FieldT, class StencilT, class TAIL>
-  struct OutputGraphvizEdge<MANAGER, FROM, bf::cons< bf::pair<FieldT, StencilT>, TAIL> > {
+  struct OutputGraphvizEdge<MANAGER, FROM, bf::cons< Tag<FieldT, StencilT>, TAIL> > {
     static void write(std::ostream & os) {
       os << "  " << FROM::name() << " -> " << FieldT::name() << ";" << std::endl;
       OutputGraphvizEdge<MANAGER,FROM,TAIL>::write(os);

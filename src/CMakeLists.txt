@@ -59,6 +59,7 @@ SET ( HEADERS
     Kanomi_ScalarField.hpp
     Kanomi_ScalarPolynomial.hpp
     Kanomi_Stencils.hpp
+    Kanomi_Tag.hpp
     Kanomi_TypeInfo.hpp
     Kanomi_version.hpp
 )

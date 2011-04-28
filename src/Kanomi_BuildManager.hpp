@@ -31,8 +31,8 @@ private:
   struct Build<S, R, bf::cons<PH,PT> > {
 
     // Pull off the top prereq
-    typedef typename PH::first_type FieldT;
-    typedef typename PH::second_type StencilT;
+    typedef typename PH::FieldT FieldT;
+    typedef typename PH::StencilT StencilT;
 
     // Find the type that supplies this prereq
     typedef typename Factory<FieldT, StencilT>::ProviderT PrereqProviderT;

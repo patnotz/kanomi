@@ -3,6 +3,7 @@
 
 #include <Kanomi_FieldNames.hpp>
 #include <Kanomi_mpl.hpp>
+#include <Kanomi_Tag.hpp>
 
 namespace kanomi {
 
@@ -19,11 +20,11 @@ struct EnergyResidual {
   typedef field::DETJ DetjT;
 
   typedef
-      bf::cons< bf::pair<ThermalCondT,StencilT>,
-      bf::cons< bf::pair<GradTempT,StencilT>,
-      bf::cons< bf::pair<GradBasisFunctionT,StencilT>,
-      bf::cons< bf::pair<QuadWeightT,StencilT>,
-      bf::cons< bf::pair<DetjT,StencilT> > > > > > PrereqsT;
+      bf::cons< Tag<ThermalCondT,StencilT>,
+      bf::cons< Tag<GradTempT,StencilT>,
+      bf::cons< Tag<GradBasisFunctionT,StencilT>,
+      bf::cons< Tag<QuadWeightT,StencilT>,
+      bf::cons< Tag<DetjT,StencilT> > > > > > PrereqsT;
 
   EnergyResidual() : name(FieldT::name()) {
     const ScalarT zero(0);

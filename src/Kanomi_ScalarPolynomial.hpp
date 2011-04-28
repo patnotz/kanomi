@@ -1,14 +1,15 @@
 #ifndef KANOMI_SCALARPOLYNOMIAL_HPP_
 #define KANOMI_SCALARPOLYNOMIAL_HPP_
 
-#include <Kanomi_ModelNames.hpp>
-#include <Kanomi_Named.hpp>
-#include <Kanomi_Manager.hpp>
-#include <Kanomi_Stencils.hpp>
 #include <string>
 #include <vector>
 #include <sstream>
 #include <Teuchos_ParameterList.hpp>
+#include <Kanomi_ModelNames.hpp>
+#include <Kanomi_Named.hpp>
+#include <Kanomi_Manager.hpp>
+#include <Kanomi_Stencils.hpp>
+#include <Kanomi_Tag.hpp>
 
 namespace kanomi {
 
@@ -20,7 +21,7 @@ struct ScalarPolynomial {
   typedef VARIABLE VariableT;
 
   typedef bf::cons<
-      bf::pair<VariableT, StencilT>
+      Tag<VariableT, StencilT>
   > PrereqsT;
 
   ScalarPolynomial() :

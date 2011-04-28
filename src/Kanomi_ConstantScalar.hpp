@@ -6,6 +6,7 @@
 #include <Kanomi_Stencils.hpp>
 #include <string>
 #include <Teuchos_ParameterList.hpp>
+#include <Kanomi_Tag.hpp>
 
 namespace kanomi {
 
@@ -14,6 +15,7 @@ struct ConstantScalar {
   typedef FIELD FieldT;
   typedef MODEL ModelT;
   typedef STENCIL StencilT;
+  typedef Tag<FieldT,StencilT> TagT;
 
   typedef bf::nil PrereqsT;
 

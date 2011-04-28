@@ -11,20 +11,22 @@ template <class STENCIL>
 struct EnergyResidual {
   typedef field::ENERGY_RESIDUAL FieldT;
   typedef STENCIL StencilT;
+  typedef Tag<FieldT,StencilT> TagT;
+
   typedef typename StencilT::TopologyT TopologyT;
 
-  typedef field::THERMAL_CONDUCTIVITY ThermalCondT;
-  typedef field::GRAD_TEMPERATURE GradTempT;
-  typedef field::GRAD_BASIS_FUNCTION GradBasisFunctionT;
-  typedef field::QUADRATURE_WEIGHTS QuadWeightT;
-  typedef field::DETJ DetjT;
+  typedef Tag<field::THERMAL_CONDUCTIVITY,StencilT> ThermalCondT;
+  typedef Tag<field::GRAD_TEMPERATURE,StencilT> GradTempT;
+  typedef Tag<field::GRAD_BASIS_FUNCTION,StencilT> GradBasisFunctionT;
+  typedef Tag<field::QUADRATURE_WEIGHTS,StencilT> QuadWeightT;
+  typedef Tag<field::DETJ,StencilT> DetjT;
 
   typedef
-      bf::cons< Tag<ThermalCondT,StencilT>,
-      bf::cons< Tag<GradTempT,StencilT>,
-      bf::cons< Tag<GradBasisFunctionT,StencilT>,
-      bf::cons< Tag<QuadWeightT,StencilT>,
-      bf::cons< Tag<DetjT,StencilT> > > > > > PrereqsT;
+      bf::cons< ThermalCondT,
+      bf::cons< GradTempT,
+      bf::cons< GradBasisFunctionT,
+      bf::cons< QuadWeightT,
+      bf::cons< DetjT > > > > > PrereqsT;
 
   EnergyResidual() : name(FieldT::name()) {
     const ScalarT zero(0);

@@ -5,6 +5,7 @@
 #include <Kanomi_ModelNames.hpp>
 #include <Kanomi_Factory.hpp>
 #include <Kanomi_ModelProvider.hpp>
+#include <Kanomi_Tag.hpp>
 
 // Example user "input file" used to select components at compile time
 
@@ -20,7 +21,8 @@ ENABLE_MODEL(field::THERMAL_CONDUCTIVITY,model::POLYNOMIAL);
 namespace kanomi {
 
 // For now, use this as a root-level dependency...
-typedef typename Factory<field::ENERGY_RESIDUAL, QUAD_Q4>::ProviderT ResidP;
+typedef Tag<field::ENERGY_RESIDUAL, QUAD_Q4> EnergyResidualTag;
+typedef typename Factory<EnergyResidualTag>::ProviderT ResidP;
 typedef bf::cons<ResidP> UserRootsT;
 
 } // namespace kanomi

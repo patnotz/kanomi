@@ -27,15 +27,11 @@ private:
   };
 
   // Process a prereq
-  template <class S, class R, class PH, class PT>
-  struct Build<S, R, bf::cons<PH,PT> > {
-
-    // Pull off the top prereq
-    typedef typename PH::FieldT FieldT;
-    typedef typename PH::StencilT StencilT;
+  template <class S, class R, class TAG, class PT>
+  struct Build<S, R, bf::cons<TAG,PT> > {
 
     // Find the type that supplies this prereq
-    typedef typename Factory<FieldT, StencilT>::ProviderT PrereqProviderT;
+    typedef typename Factory<TAG>::ProviderT PrereqProviderT;
 
     // add the prereq provider to the front of the list and recurse
     typedef typename unique_back_cons<PrereqProviderT, R>::type NextR;

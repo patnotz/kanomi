@@ -41,9 +41,9 @@ struct Manager {
     return *bf::find<IMPL>(seq);
   }
 
-  template <class FIELD>
+  template <class TAG>
   ScalarT * get_values() {
-    typedef typename provider_of_field<ManagerT,FIELD>::type ImplT;
+    typedef typename provider_of_tag<ManagerT,TAG>::type ImplT;
     return *bf::find<ImplT>(seq).values;
   }
 

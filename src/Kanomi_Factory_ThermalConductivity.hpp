@@ -7,6 +7,7 @@
 #include <Kanomi_ScalarField.hpp>
 #include <Kanomi_ModelProvider.hpp>
 #include <Kanomi_ScalarPolynomial.hpp>
+#include <Kanomi_Tag.hpp>
 #include <boost/fusion/container.hpp>
 
 namespace bf = boost::fusion;
@@ -14,9 +15,11 @@ namespace bf = boost::fusion;
 namespace kanomi {
 
 template <class STENCIL>
-struct Factory<field::THERMAL_CONDUCTIVITY, STENCIL> {
+struct Factory<Tag<field::THERMAL_CONDUCTIVITY, STENCIL> > {
   typedef field::THERMAL_CONDUCTIVITY FieldT;
   typedef STENCIL StencilT;
+  typedef Tag<FieldT,StencilT> TagT;
+
   typedef bf::list<
       ScalarField<FieldT,model::FIELD_DATA,StencilT>,
       ConstantScalar<FieldT,model::CONSTANT,StencilT>,

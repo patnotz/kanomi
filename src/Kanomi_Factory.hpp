@@ -3,7 +3,7 @@
 
 namespace kanomi {
 
-template <class FIELD, class STENCIL> struct Factory;
+template <class TAG> struct Factory;
 
 } // namespace kanomi
 

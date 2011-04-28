@@ -41,7 +41,7 @@ various multicore architecutres.
 ## TODO
  - Improve file organization
  - Need central memory manager and getters
- - Better compilation errors for missing Factory<FieldT,StencilT> 
+ - Better compilation errors for missing Factory<TagT> 
  - Switch from `fusion::list<>` to `fusion::cons<>`?
  - Populate stencil classes with real quadrature points
  - Choose an array class (`Kokkos::MDArray` ?)

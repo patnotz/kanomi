@@ -18,11 +18,10 @@ struct ScalarPolynomial {
   typedef FIELD FieldT;
   typedef MODEL ModelT;
   typedef STENCIL StencilT;
-  typedef VARIABLE VariableT;
+  typedef Tag<VARIABLE,StencilT> VariableT;
+  typedef Tag<FieldT,StencilT> TagT;
 
-  typedef bf::cons<
-      Tag<VariableT, StencilT>
-  > PrereqsT;
+  typedef bf::cons<VariableT> PrereqsT;
 
   ScalarPolynomial() :
     name(FieldT::name() + " (" + ModelT::name() + ")"), order(0) {

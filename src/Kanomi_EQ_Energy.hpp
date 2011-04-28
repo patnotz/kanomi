@@ -7,25 +7,28 @@
 #include <Kanomi_GradScalarField.hpp>
 #include <Kanomi_EnergyResidual.hpp>
 #include <Kanomi_BasisFunction.hpp>
+#include <Kanomi_Tag.hpp>
 
 namespace kanomi {
 
 template <class STENCIL>
-struct Factory<field::TEMPERATURE, STENCIL> :
+struct Factory<Tag<field::TEMPERATURE, STENCIL> > :
     ScalarEQ<field::TEMPERATURE, STENCIL> {};
 
 template <class STENCIL>
-struct Factory<field::GRAD_TEMPERATURE, STENCIL> {
+struct Factory< Tag<field::GRAD_TEMPERATURE, STENCIL> > {
   typedef field::GRAD_TEMPERATURE FieldT;
   typedef field::TEMPERATURE CoeffsT;
   typedef STENCIL StencilT;
+  typedef Tag<FieldT,StencilT> TagT;
   typedef GradScalarField<FieldT,CoeffsT,model::FIELD_DATA,StencilT> ProviderT;
 };
 
 template <class STENCIL>
-struct Factory<field::ENERGY_RESIDUAL, STENCIL> {
+struct Factory<Tag<field::ENERGY_RESIDUAL, STENCIL> > {
   typedef field::ENERGY_RESIDUAL FieldT;
   typedef STENCIL StencilT;
+  typedef Tag<FieldT,StencilT> TagT;
   typedef EnergyResidual<StencilT> ProviderT;
 };
 

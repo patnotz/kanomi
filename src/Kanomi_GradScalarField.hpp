@@ -16,6 +16,7 @@ struct GradScalarField {
   typedef COEFFS CoeffsT;
   typedef MODEL ModelT;
   typedef STENCIL StencilT;
+  typedef Tag<FieldT,StencilT> TagT;
 
   typedef bf::cons< Tag<CoeffsT,StencilT> > PrereqsT;
 

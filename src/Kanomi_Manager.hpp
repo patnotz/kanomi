@@ -10,6 +10,7 @@
 #include <Kanomi_Factory.hpp>
 #include <Kanomi_provider.hpp>
 #include <Kanomi_OutputGraphviz.hpp>
+#include <Kanomi_TypeInfo.hpp>
 
 namespace bf = boost::fusion;
 
@@ -38,6 +39,12 @@ struct Manager {
   template <class IMPL>
   IMPL & get() {
     return *bf::find<IMPL>(seq);
+  }
+
+  template <class FIELD>
+  ScalarT * get_values() {
+    typedef typename provider_of_field<ManagerT,FIELD>::type ImplT;
+    return *bf::find<ImplT>(seq).values;
   }
 
   SequenceT seq;

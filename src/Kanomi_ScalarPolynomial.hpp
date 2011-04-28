@@ -35,8 +35,7 @@ struct ScalarPolynomial {
   void setup(M & m, Teuchos::RCP<Teuchos::ParameterList> plist) {
     std::cout << "setup " << name << std::endl;
 
-    typedef typename provider_of_field<M,VariableT>::type ProviderT;
-    variable = m.template get<ProviderT>().values;
+    variable = m.template get_values<VariableT>();
 
     Teuchos::ParameterList & my_plist = plist->sublist(name,true);
     order = my_plist.get<int>("order");

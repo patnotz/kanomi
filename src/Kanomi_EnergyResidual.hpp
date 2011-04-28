@@ -34,17 +34,12 @@ struct EnergyResidual {
 
   template <class M>
   void setup(M & m, Teuchos::RCP<Teuchos::ParameterList> plist) {
-    typedef typename provider_of_field<M,ThermalCondT>::type ThermCondPT;
-    typedef typename provider_of_field<M,GradTempT>::type GradTempPT;
-    typedef typename provider_of_field<M,GradBasisFunctionT>::type GradBasisFunctionPT;
-    typedef typename provider_of_field<M,QuadWeightT>::type QuadWeightPT;
-    typedef typename provider_of_field<M,DetjT>::type DetjPT;
 
-    thermCond = m.template get<ThermCondPT>().values;
-    gradTemp = m.template get<GradTempPT>().values;
-    gradBasisFunction = m.template get<GradBasisFunctionPT>().values;
-    quadWeight = m.template get<QuadWeightPT>().values;
-    detj = m.template get<DetjPT>().values;
+    thermCond = m.template get_values<ThermalCondT>();
+    gradTemp = m.template get_values<GradTempT>();
+    gradBasisFunction = m.template get_values<GradBasisFunctionT>();
+    quadWeight = m.template get_values<QuadWeightT>();
+    detj = m.template get_values<DetjT>();
 
     for(int i=0; i < num_nodes; ++i) {
       values[i] = 3.14159;

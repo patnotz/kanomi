@@ -50,15 +50,12 @@ ELSE()
   SET(KANOMI_MPI FALSE)
 ENDIF()
 
+
 ################################################################################
-# GTest
-# See: http://code.google.com/p/googletest/
+# GTest - http://code.google.com/p/googletest/
 ################################################################################
-set(GTEST_ROOT /usr/local/gtest-1.5.0)
-find_package(GTest)
-if(GTEST_FOUND)
-   enable_testing(true)
-endif()
+add_subdirectory(gtest-1.6.0)
+enable_testing(true)
 
 add_subdirectory(src)
 

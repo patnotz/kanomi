@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 
+################################################################################
+# Trilinos
+################################################################################
 # Error check up front
 IF (NOT DEFINED KANOMI_TRILINOS_DIR)
   MESSAGE(FATAL_ERROR "\nKANOMI Error: cmake must define KANOMI_TRILINOS_DIR:
@@ -30,7 +33,7 @@ MESSAGE("End of Trilinos details\n")
 SET(CMAKE_CXX_COMPILER ${Trilinos_CXX_COMPILER} )
 SET(CMAKE_C_COMPILER ${Trilinos_C_COMPILER} )
 
-add_definitions("-g -O2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O3 --std=c++0x")
 
 # End of setup and error checking
 #  NOTE: PROJECT command checks for compilers, so this statement
@@ -57,7 +60,9 @@ ENDIF()
 add_subdirectory(gtest-1.6.0)
 enable_testing(true)
 
+################################################################################
 # Auto-version generation
+################################################################################
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
     COMMAND ${PROJECT_SOURCE_DIR}/create-version-header.sh ${PROJECT_SOURCE_DIR}/version-gen.sh ${CMAKE_CURRENT_BINARY_DIR}
@@ -66,10 +71,12 @@ add_custom_command(
     ALL
 )
 
-#
-# External dependencies and paths
-#
-find_package(Boost 1.46.0 REQUIRED)
+################################################################################
+# Boost
+################################################################################
+set(Boost_ADDITIONAL_VERSIONS 1.47 1.47.0)
+find_package(Boost 1.47 REQUIRED COMPONENTS filesystem system)
+
 include_directories (
     src
     ${Boost_INCLUDE_DIRS}
@@ -83,9 +90,9 @@ link_directories (
     ${Trilinos_TPL_LIBRARY_DIRS} 
 )
 
-#
+################################################################################
 # The kanomi library
-#
+################################################################################
 FILE(GLOB SOURCES "src/*.cpp")
 FILE(GLOB KANOMI_HEADERS "src/*.hpp")
 SET ( HEADERS

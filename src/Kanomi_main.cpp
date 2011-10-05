@@ -21,7 +21,7 @@ int main(int argc, char * argv[]) {
   plist->sublist("THERMAL_CONDUCTIVITY_POLYNOMIAL").set<ScalarT>("C_2",0.001);
   plist->sublist("TEMPERATURE").set<ScalarT>("value",3.14159);
 
-  typedef typename BuildManager<UserRootsT>::ManagerT ManagerT;
+  typedef BuildManager<UserRootsT>::ManagerT ManagerT;
   ManagerT m(plist);
   m.run();
   std::ofstream os("kanomi.dot");

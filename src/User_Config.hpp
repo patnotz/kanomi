@@ -22,7 +22,7 @@ namespace kanomi {
 
 // For now, use this as a root-level dependency...
 typedef Tag<field::ENERGY_RESIDUAL, QUAD_Q4> EnergyResidualTag;
-typedef typename Factory<EnergyResidualTag>::ProviderT ResidP;
+typedef Factory<EnergyResidualTag>::ProviderT ResidP;
 typedef bf::cons<ResidP> UserRootsT;
 
 } // namespace kanomi

@@ -3,7 +3,7 @@
 #include <Teuchos_ParameterList.hpp>
 #include <Kanomi_BuildManager.hpp>
 #include <Kanomi_version.hpp>
-#include <User_Config.hpp>
+#include <Demo_Config.hpp>
 
 using namespace kanomi;
 

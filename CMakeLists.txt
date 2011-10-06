@@ -93,8 +93,8 @@ link_directories (
 ################################################################################
 # The kanomi library
 ################################################################################
-FILE(GLOB SOURCES "src/*.cpp")
-FILE(GLOB KANOMI_HEADERS "src/*.hpp")
+FILE(GLOB SOURCES "src/Kanomi_*.cpp")
+FILE(GLOB KANOMI_HEADERS "src/Kanomi_*.hpp")
 SET ( HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/Kanomi_autoversion.hpp
     ${KANOMI_HEADERS}
@@ -109,7 +109,10 @@ SET ( kanomi_LIBRARIES
 #
 # The kanomi executable
 #
-add_executable ( kanomi src/Kanomi_main.cpp)
+add_executable ( kanomi 
+    src/Demo_main.cpp 
+    src/Demo_Config.hpp 
+)
 
 target_link_libraries ( kanomi 
     ${kanomi_LIBRARIES} 

@@ -3,6 +3,7 @@ var NAVTREE =
   [ "Kanomi", "index.html", [
     [ "Class List", "annotated.html", [
       [ "kanomi::provides_field< FIELD >::apply< IMPL >", "structkanomi_1_1provides__field_1_1apply.html", null ],
+      [ "kanomi::provides_tag< TAG >::apply< IMPL >", "structkanomi_1_1provides__tag_1_1apply.html", null ],
       [ "kanomi::ModelProvider< MODELS, FIELD >::enabled_pred::apply< IMPL >", "structkanomi_1_1_model_provider_1_1enabled__pred_1_1apply.html", null ],
       [ "kanomi::BuildManager< ROOTS >", "structkanomi_1_1_build_manager.html", null ],
       [ "kanomi::ConstantScalar< FIELD, MODEL, STENCIL >", "structkanomi_1_1_constant_scalar.html", null ],
@@ -13,14 +14,14 @@ var NAVTREE =
       [ "kanomi::DoSetup< M >", "structkanomi_1_1_do_setup.html", null ],
       [ "kanomi::enabled< FIELD, MODEL >", "structkanomi_1_1enabled.html", null ],
       [ "kanomi::EnergyResidual< STENCIL >", "structkanomi_1_1_energy_residual.html", null ],
-      [ "kanomi::Factory< field::BASIS_FUNCTION, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::DETJ, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_d_e_t_j_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::ENERGY_RESIDUAL, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_e_n_e_r_g_y___r_e_s_i_d_u_a_l_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::GRAD_BASIS_FUNCTION, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_g_r_a_d___b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::GRAD_TEMPERATURE, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_g_r_a_d___t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::QUADRATURE_WEIGHTS, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_q_u_a_d_r_a_t_u_r_e___w_e_i_g_h_t_s_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::TEMPERATURE, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::THERMAL_CONDUCTIVITY, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_t_h_e_r_m_a_l___c_o_n_d_u_c_t_i_v_i_t_y_00_01_s_t_e_n_c_i_l_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::BASIS_FUNCTION, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::DETJ, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_d_e_t_j_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::ENERGY_RESIDUAL, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_e_n_e_r_g_y___r_e_s_i_d_u_a_l_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::GRAD_BASIS_FUNCTION, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_g_r_a_d___b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::GRAD_TEMPERATURE, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_g_r_a_d___t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::QUADRATURE_WEIGHTS, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_q_u_a_d_r_a_t_u_r_e___w_e_i_g_h_t_s_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::TEMPERATURE, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::THERMAL_CONDUCTIVITY, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_t_h_e_r_m_a_l___c_o_n_d_u_c_t_i_v_i_t_y_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
       [ "kanomi::GradScalarField< FIELD, COEFFS, MODEL, STENCIL >", "structkanomi_1_1_grad_scalar_field.html", null ],
       [ "kanomi::HEX", "structkanomi_1_1_h_e_x.html", null ],
       [ "kanomi::HEX_Q8", "structkanomi_1_1_h_e_x___q8.html", null ],
@@ -31,7 +32,9 @@ var NAVTREE =
       [ "kanomi::Named< T >", "structkanomi_1_1_named.html", null ],
       [ "kanomi::OutputGraphviz< M >", "structkanomi_1_1_output_graphviz.html", null ],
       [ "kanomi::provider_of_field< M, FieldT >", "structkanomi_1_1provider__of__field.html", null ],
+      [ "kanomi::provider_of_tag< M, TagT >", "structkanomi_1_1provider__of__tag.html", null ],
       [ "kanomi::provides_field< FIELD >", "structkanomi_1_1provides__field.html", null ],
+      [ "kanomi::provides_tag< TAG >", "structkanomi_1_1provides__tag.html", null ],
       [ "kanomi::QUAD", "structkanomi_1_1_q_u_a_d.html", null ],
       [ "kanomi::QUAD_Q4", "structkanomi_1_1_q_u_a_d___q4.html", null ],
       [ "kanomi::ScalarEQ< FIELD, STENCIL >", "structkanomi_1_1_scalar_e_q.html", null ],
@@ -53,6 +56,7 @@ var NAVTREE =
     [ "Class Index", "classes.html", null ],
     [ "Class Hierarchy", "hierarchy.html", [
       [ "kanomi::provides_field< FIELD >::apply< IMPL >", "structkanomi_1_1provides__field_1_1apply.html", null ],
+      [ "kanomi::provides_tag< TAG >::apply< IMPL >", "structkanomi_1_1provides__tag_1_1apply.html", null ],
       [ "kanomi::BuildManager< ROOTS >", "structkanomi_1_1_build_manager.html", null ],
       [ "kanomi::ConstantScalar< FIELD, MODEL, STENCIL >", "structkanomi_1_1_constant_scalar.html", null ],
       [ "kanomi::contains< bf::cons< HEAD, TAIL >, TYPE >", "structkanomi_1_1contains_3_01bf_1_1cons_3_01_h_e_a_d_00_01_t_a_i_l_01_4_00_01_t_y_p_e_01_4.html", null ],
@@ -65,13 +69,13 @@ var NAVTREE =
         [ "kanomi::ModelProvider< MODELS, FIELD >::enabled_pred::apply< IMPL >", "structkanomi_1_1_model_provider_1_1enabled__pred_1_1apply.html", null ]
       ] ],
       [ "kanomi::EnergyResidual< STENCIL >", "structkanomi_1_1_energy_residual.html", null ],
-      [ "kanomi::Factory< field::BASIS_FUNCTION, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::DETJ, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_d_e_t_j_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::ENERGY_RESIDUAL, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_e_n_e_r_g_y___r_e_s_i_d_u_a_l_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::GRAD_BASIS_FUNCTION, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_g_r_a_d___b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::GRAD_TEMPERATURE, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_g_r_a_d___t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::QUADRATURE_WEIGHTS, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_q_u_a_d_r_a_t_u_r_e___w_e_i_g_h_t_s_00_01_s_t_e_n_c_i_l_01_4.html", null ],
-      [ "kanomi::Factory< field::THERMAL_CONDUCTIVITY, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_t_h_e_r_m_a_l___c_o_n_d_u_c_t_i_v_i_t_y_00_01_s_t_e_n_c_i_l_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::BASIS_FUNCTION, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::DETJ, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_d_e_t_j_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::ENERGY_RESIDUAL, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_e_n_e_r_g_y___r_e_s_i_d_u_a_l_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::GRAD_BASIS_FUNCTION, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_g_r_a_d___b_a_s_i_s___f_u_n_c_t_i_o_n_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::GRAD_TEMPERATURE, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_g_r_a_d___t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::QUADRATURE_WEIGHTS, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_q_u_a_d_r_a_t_u_r_e___w_e_i_g_h_t_s_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
+      [ "kanomi::Factory< Tag< field::THERMAL_CONDUCTIVITY, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_t_h_e_r_m_a_l___c_o_n_d_u_c_t_i_v_i_t_y_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ],
       [ "kanomi::GradScalarField< FIELD, COEFFS, MODEL, STENCIL >", "structkanomi_1_1_grad_scalar_field.html", null ],
       [ "kanomi::HEX", "structkanomi_1_1_h_e_x.html", null ],
       [ "kanomi::HEX_Q8", "structkanomi_1_1_h_e_x___q8.html", null ],
@@ -82,12 +86,14 @@ var NAVTREE =
       [ "kanomi::Named< T >", "structkanomi_1_1_named.html", null ],
       [ "kanomi::OutputGraphviz< M >", "structkanomi_1_1_output_graphviz.html", null ],
       [ "kanomi::provider_of_field< M, FieldT >", "structkanomi_1_1provider__of__field.html", null ],
+      [ "kanomi::provider_of_tag< M, TagT >", "structkanomi_1_1provider__of__tag.html", null ],
       [ "kanomi::provides_field< FIELD >", "structkanomi_1_1provides__field.html", null ],
+      [ "kanomi::provides_tag< TAG >", "structkanomi_1_1provides__tag.html", null ],
       [ "kanomi::QUAD", "structkanomi_1_1_q_u_a_d.html", null ],
       [ "kanomi::QUAD_Q4", "structkanomi_1_1_q_u_a_d___q4.html", null ],
       [ "kanomi::ScalarEQ< FIELD, STENCIL >", "structkanomi_1_1_scalar_e_q.html", null ],
       [ "kanomi::ScalarEQ< field::TEMPERATURE, STENCIL >", "structkanomi_1_1_scalar_e_q.html", [
-        [ "kanomi::Factory< field::TEMPERATURE, STENCIL >", "structkanomi_1_1_factory_3_01field_1_1_t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4.html", null ]
+        [ "kanomi::Factory< Tag< field::TEMPERATURE, STENCIL > >", "structkanomi_1_1_factory_3_01_tag_3_01field_1_1_t_e_m_p_e_r_a_t_u_r_e_00_01_s_t_e_n_c_i_l_01_4_01_4.html", null ]
       ] ],
       [ "kanomi::ScalarField< FIELD, MODEL, STENCIL >", "structkanomi_1_1_scalar_field.html", null ],
       [ "kanomi::ScalarPolynomial< FIELD, MODEL, STENCIL, VARIABLE >", "structkanomi_1_1_scalar_polynomial.html", null ],
@@ -105,6 +111,8 @@ var NAVTREE =
       [ "kanomi::unique_cons< T, S >::unique_cons_impl< SS, TT, boost::mpl::true_ >", "structkanomi_1_1unique__cons_1_1unique__cons__impl_3_01_s_s_00_01_t_t_00_01boost_1_1mpl_1_1true___01_4.html", null ]
     ] ],
     [ "File List", "files.html", [
+      [ "src/Demo_Config.hpp", null, null ],
+      [ "src/Demo_main.cpp", null, null ],
       [ "src/Kanomi_BasisFunction.hpp", null, null ],
       [ "src/Kanomi_BuildManager.hpp", null, null ],
       [ "src/Kanomi_ConstantScalar.hpp", null, null ],
@@ -119,7 +127,6 @@ var NAVTREE =
       [ "src/Kanomi_Factory_ThermalConductivity.hpp", null, null ],
       [ "src/Kanomi_FieldNames.hpp", null, null ],
       [ "src/Kanomi_GradScalarField.hpp", null, null ],
-      [ "src/Kanomi_main.cpp", null, null ],
       [ "src/Kanomi_Manager.hpp", null, null ],
       [ "src/Kanomi_ModelNames.hpp", null, null ],
       [ "src/Kanomi_ModelProvider.hpp", null, null ],
@@ -134,8 +141,7 @@ var NAVTREE =
       [ "src/Kanomi_Tag.hpp", null, null ],
       [ "src/Kanomi_TypeInfo.hpp", null, null ],
       [ "src/Kanomi_version.cpp", null, null ],
-      [ "src/Kanomi_version.hpp", null, null ],
-      [ "src/User_Config.hpp", null, null ]
+      [ "src/Kanomi_version.hpp", null, null ]
     ] ],
     [ "Directories", "dirs.html", [
       [ "src", "dir_7045b1aa928a053850d35acdb37c1f1b.html", null ]
